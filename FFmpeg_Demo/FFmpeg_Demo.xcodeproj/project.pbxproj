@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9938F6652689A7C700F9BFAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9938F6642689A7C700F9BFAC /* AppDelegate.m */; };
+		9938F66B2689A7C700F9BFAC /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9938F66A2689A7C700F9BFAC /* ViewController.mm */; };
+		9938F66E2689A7C700F9BFAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9938F66C2689A7C700F9BFAC /* Main.storyboard */; };
+		9938F6702689A7CC00F9BFAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9938F66F2689A7CC00F9BFAC /* Assets.xcassets */; };
+		9938F6732689A7CC00F9BFAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9938F6712689A7CC00F9BFAC /* LaunchScreen.storyboard */; };
+		9938F6762689A7CC00F9BFAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9938F6752689A7CC00F9BFAC /* main.m */; };
+		9938F6822689ADB600F9BFAC /* Mp3Encoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9938F6802689ADB600F9BFAC /* Mp3Encoder.cpp */; };
+		9938F687268AB15200F9BFAC /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9938F685268AB15200F9BFAC /* libmp3lame.a */; };
+		9938F68B268AB81F00F9BFAC /* vocal.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 9938F68A268AB81F00F9BFAC /* vocal.pcm */; };
+		9938F68E268AB8F700F9BFAC /* MHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9938F68D268AB8F700F9BFAC /* MHUtil.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9938F6602689A7C700F9BFAC /* FFmpeg_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFmpeg_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9938F6632689A7C700F9BFAC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9938F6642689A7C700F9BFAC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9938F6692689A7C700F9BFAC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9938F66A2689A7C700F9BFAC /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		9938F66D2689A7C700F9BFAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9938F66F2689A7CC00F9BFAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9938F6722689A7CC00F9BFAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9938F6742689A7CC00F9BFAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9938F6752689A7CC00F9BFAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9938F6802689ADB600F9BFAC /* Mp3Encoder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mp3Encoder.cpp; sourceTree = "<group>"; };
+		9938F6812689ADB600F9BFAC /* Mp3Encoder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mp3Encoder.hpp; sourceTree = "<group>"; };
+		9938F685268AB15200F9BFAC /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		9938F686268AB15200F9BFAC /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		9938F68A268AB81F00F9BFAC /* vocal.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = vocal.pcm; sourceTree = "<group>"; };
+		9938F68C268AB8F700F9BFAC /* MHUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHUtil.h; sourceTree = "<group>"; };
+		9938F68D268AB8F700F9BFAC /* MHUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHUtil.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9938F65D2689A7C700F9BFAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9938F687268AB15200F9BFAC /* libmp3lame.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9938F6572689A7C700F9BFAC = {
+			isa = PBXGroup;
+			children = (
+				9938F6622689A7C700F9BFAC /* FFmpeg_Demo */,
+				9938F6612689A7C700F9BFAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9938F6612689A7C700F9BFAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9938F6602689A7C700F9BFAC /* FFmpeg_Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9938F6622689A7C700F9BFAC /* FFmpeg_Demo */ = {
+			isa = PBXGroup;
+			children = (
+				9938F67F2689AD9E00F9BFAC /* Business */,
+				9938F689268AB81F00F9BFAC /* resource */,
+				9938F688268AB81100F9BFAC /* tools */,
+				9938F683268AB12300F9BFAC /* libs */,
+				9938F67C2689AD1F00F9BFAC /* main */,
+				9938F67D2689AD4500F9BFAC /* Supporting Files */,
+			);
+			path = FFmpeg_Demo;
+			sourceTree = "<group>";
+		};
+		9938F67C2689AD1F00F9BFAC /* main */ = {
+			isa = PBXGroup;
+			children = (
+				9938F6632689A7C700F9BFAC /* AppDelegate.h */,
+				9938F6642689A7C700F9BFAC /* AppDelegate.m */,
+				9938F6752689A7CC00F9BFAC /* main.m */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		9938F67D2689AD4500F9BFAC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9938F66C2689A7C700F9BFAC /* Main.storyboard */,
+				9938F66F2689A7CC00F9BFAC /* Assets.xcassets */,
+				9938F6712689A7CC00F9BFAC /* LaunchScreen.storyboard */,
+				9938F6742689A7CC00F9BFAC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9938F67F2689AD9E00F9BFAC /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				9938F6692689A7C700F9BFAC /* ViewController.h */,
+				9938F66A2689A7C700F9BFAC /* ViewController.mm */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		9938F683268AB12300F9BFAC /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				9938F684268AB15200F9BFAC /* lame */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		9938F684268AB15200F9BFAC /* lame */ = {
+			isa = PBXGroup;
+			children = (
+				9938F685268AB15200F9BFAC /* libmp3lame.a */,
+				9938F686268AB15200F9BFAC /* lame.h */,
+			);
+			path = lame;
+			sourceTree = "<group>";
+		};
+		9938F688268AB81100F9BFAC /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				9938F6802689ADB600F9BFAC /* Mp3Encoder.cpp */,
+				9938F6812689ADB600F9BFAC /* Mp3Encoder.hpp */,
+				9938F68C268AB8F700F9BFAC /* MHUtil.h */,
+				9938F68D268AB8F700F9BFAC /* MHUtil.m */,
+			);
+			name = tools;
+			path = FFmpeg_Demo/tools;
+			sourceTree = SOURCE_ROOT;
+		};
+		9938F689268AB81F00F9BFAC /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				9938F68A268AB81F00F9BFAC /* vocal.pcm */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9938F65F2689A7C700F9BFAC /* FFmpeg_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9938F6792689A7CC00F9BFAC /* Build configuration list for PBXNativeTarget "FFmpeg_Demo" */;
+			buildPhases = (
+				9938F65C2689A7C700F9BFAC /* Sources */,
+				9938F65D2689A7C700F9BFAC /* Frameworks */,
+				9938F65E2689A7C700F9BFAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FFmpeg_Demo;
+			productName = FFmpeg_Demo;
+			productReference = 9938F6602689A7C700F9BFAC /* FFmpeg_Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9938F6582689A7C700F9BFAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					9938F65F2689A7C700F9BFAC = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 9938F65B2689A7C700F9BFAC /* Build configuration list for PBXProject "FFmpeg_Demo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9938F6572689A7C700F9BFAC;
+			productRefGroup = 9938F6612689A7C700F9BFAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9938F65F2689A7C700F9BFAC /* FFmpeg_Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9938F65E2689A7C700F9BFAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9938F68B268AB81F00F9BFAC /* vocal.pcm in Resources */,
+				9938F6732689A7CC00F9BFAC /* LaunchScreen.storyboard in Resources */,
+				9938F6702689A7CC00F9BFAC /* Assets.xcassets in Resources */,
+				9938F66E2689A7C700F9BFAC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9938F65C2689A7C700F9BFAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9938F68E268AB8F700F9BFAC /* MHUtil.m in Sources */,
+				9938F66B2689A7C700F9BFAC /* ViewController.mm in Sources */,
+				9938F6652689A7C700F9BFAC /* AppDelegate.m in Sources */,
+				9938F6762689A7CC00F9BFAC /* main.m in Sources */,
+				9938F6822689ADB600F9BFAC /* Mp3Encoder.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9938F66C2689A7C700F9BFAC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9938F66D2689A7C700F9BFAC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9938F6712689A7CC00F9BFAC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9938F6722689A7CC00F9BFAC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9938F6772689A7CC00F9BFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9938F6782689A7CC00F9BFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9938F67A2689A7CC00F9BFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79MJSMMJTD;
+				INFOPLIST_FILE = FFmpeg_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FFmpeg_Demo/libs/lame",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robot.MDMapAndCamera.FFmpeg-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9938F67B2689A7CC00F9BFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79MJSMMJTD;
+				INFOPLIST_FILE = FFmpeg_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FFmpeg_Demo/libs/lame",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robot.MDMapAndCamera.FFmpeg-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9938F65B2689A7C700F9BFAC /* Build configuration list for PBXProject "FFmpeg_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9938F6772689A7CC00F9BFAC /* Debug */,
+				9938F6782689A7CC00F9BFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9938F6792689A7CC00F9BFAC /* Build configuration list for PBXNativeTarget "FFmpeg_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9938F67A2689A7CC00F9BFAC /* Debug */,
+				9938F67B2689A7CC00F9BFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9938F6582689A7C700F9BFAC /* Project object */;
+}
