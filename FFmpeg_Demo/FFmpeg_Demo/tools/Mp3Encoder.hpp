@@ -8,6 +8,21 @@
 #ifndef Mp3Encoder_hpp
 #define Mp3Encoder_hpp
 
+
+extern "C" {
+    #include "libavcodec/avcodec.h"
+    #include "libavformat/avformat.h"
+    #include "libavutil/avutil.h"
+    #include "libavutil/samplefmt.h"
+    #include "libavutil/common.h"
+    #include "libavutil/channel_layout.h"
+    #include "libavutil/opt.h"
+    #include "libavutil/imgutils.h"
+    #include "libavutil/mathematics.h"
+    #include "libswscale/swscale.h"
+    #include "libswresample/swresample.h"
+};
+
 #include <stdio.h>
 #include "lame.h"
 

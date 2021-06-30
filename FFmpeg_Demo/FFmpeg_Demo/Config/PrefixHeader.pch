@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  FFmpeg_Demo
+//
+//  Created by mahao on 2021/6/30.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#import <VideoToolbox/VideoToolbox.h>
+#import "MHUtil.h"
+#import "Header.h"
+
+#endif
+
+
+#endif /* PrefixHeader_pch */
+
