@@ -33,13 +33,14 @@
  * @addtogroup lavc_core
  */
 
-enum AVFieldOrder {
+enum AVFieldOrder
+{
     AV_FIELD_UNKNOWN,
     AV_FIELD_PROGRESSIVE,
-    AV_FIELD_TT,          //< Top coded_first, top displayed first
-    AV_FIELD_BB,          //< Bottom coded first, bottom displayed first
-    AV_FIELD_TB,          //< Top coded first, bottom displayed first
-    AV_FIELD_BT,          //< Bottom coded first, top displayed first
+    AV_FIELD_TT, //< Top coded_first, top displayed first
+    AV_FIELD_BB, //< Bottom coded first, bottom displayed first
+    AV_FIELD_TB, //< Top coded first, bottom displayed first
+    AV_FIELD_BT, //< Bottom coded first, top displayed first
 };
 
 /**
@@ -49,19 +50,20 @@ enum AVFieldOrder {
  * be allocated with avcodec_parameters_alloc() and freed with
  * avcodec_parameters_free().
  */
-typedef struct AVCodecParameters {
+typedef struct AVCodecParameters
+{
     /**
      * General type of the encoded data.
      */
-    enum AVMediaType codec_type;
+    enum FFAVMediaType codec_type;
     /**
      * Specific type of the encoded data (the codec used).
      */
-    enum AVCodecID   codec_id;
+    enum AVCodecID codec_id;
     /**
      * Additional information about the codec (corresponds to the AVI FOURCC).
      */
-    uint32_t         codec_tag;
+    uint32_t codec_tag;
 
     /**
      * Extra binary data needed for initializing the decoder, codec-dependent.
@@ -75,7 +77,7 @@ typedef struct AVCodecParameters {
     /**
      * Size of the extradata content in bytes.
      */
-    int      extradata_size;
+    int extradata_size;
 
     /**
      * - video: the pixel format, the value corresponds to enum AVPixelFormat.
@@ -138,16 +140,16 @@ typedef struct AVCodecParameters {
     /**
      * Video only. The order of the fields in interlaced video.
      */
-    enum AVFieldOrder                  field_order;
+    enum AVFieldOrder field_order;
 
     /**
      * Video only. Additional colorspace characteristics.
      */
-    enum AVColorRange                  color_range;
-    enum AVColorPrimaries              color_primaries;
+    enum AVColorRange color_range;
+    enum AVColorPrimaries color_primaries;
     enum AVColorTransferCharacteristic color_trc;
-    enum AVColorSpace                  color_space;
-    enum AVChromaLocation              chroma_location;
+    enum AVColorSpace color_space;
+    enum AVChromaLocation chroma_location;
 
     /**
      * Video only. Number of delayed frames.
@@ -163,22 +165,22 @@ typedef struct AVCodecParameters {
     /**
      * Audio only. The number of audio channels.
      */
-    int      channels;
+    int channels;
     /**
      * Audio only. The number of audio samples per second.
      */
-    int      sample_rate;
+    int sample_rate;
     /**
      * Audio only. The number of bytes per coded audio frame, required by some
      * formats.
      *
      * Corresponds to nBlockAlign in WAVEFORMATEX.
      */
-    int      block_align;
+    int block_align;
     /**
      * Audio only. Audio frame size, if known. Required by some formats to be static.
      */
-    int      frame_size;
+    int frame_size;
 
     /**
      * Audio only. The amount of padding (in samples) inserted by the encoder at
@@ -220,7 +222,6 @@ void avcodec_parameters_free(AVCodecParameters **par);
  * @return >= 0 on success, a negative AVERROR code on failure.
  */
 int avcodec_parameters_copy(AVCodecParameters *dst, const AVCodecParameters *src);
-
 
 /**
  * @}

@@ -5,7 +5,7 @@
 //  Created by mahao on 2021/6/28.
 //
 
-#include "Mp3Encoder.hpp"
+#include "Mp3Encoder.h"
 
 bool Mp3Encoder::Init(const char *pcmFilePath, const char *mp3FilePath, int sampleRate, int channels, int bitRate)
 {

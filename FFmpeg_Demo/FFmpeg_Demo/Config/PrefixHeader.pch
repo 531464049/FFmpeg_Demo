@@ -10,12 +10,11 @@
 
 #ifdef __OBJC__
 
-#import <VideoToolbox/VideoToolbox.h>
-#import "MHUtil.h"
-#import "Header.h"
+
+//#import "MHFFmpegTool.h"
+
 
 #endif
-
 
 #endif /* PrefixHeader_pch */
 
