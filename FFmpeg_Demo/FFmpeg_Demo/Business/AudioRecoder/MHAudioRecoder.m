@@ -20,6 +20,9 @@
 @property(nonatomic,assign)AUNode ioNode;
 @property(nonatomic,assign)AudioUnit ioUnit;
 
+@property(nonatomic,assign)AUNode convertNode;
+@property(nonatomic,assign)AudioUnit convertUnit;
+
 @property(nonatomic,assign)AUNode mixNode;
 @property(nonatomic,assign)AudioUnit mixUnit;
 
@@ -47,7 +50,7 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord
                                      withOptions:AVAudioSessionCategoryOptionMixWithOthers | AVAudioSessionCategoryOptionAllowBluetooth | AVAudioSessionCategoryOptionDefaultToSpeaker
                                            error:&error];
-    [[AVAudioSession sharedInstance] setPreferredSampleRate:44100.0 error:&error];
+    [[AVAudioSession sharedInstance] setPreferredSampleRate:sampleRate error:&error];
     [[AVAudioSession sharedInstance] setPreferredIOBufferDuration:0.005 error:&error];
     [[AVAudioSession sharedInstance] setActive:YES error:&error];
     
@@ -77,6 +80,9 @@
     status = AUGraphAddNode(_auGraph, &ioDesp, &_ioNode);
     CheckStatus(status, @"Could not add I/O Node to AUGraph");
     
+    AudioComponentDescription converterDesp = mh_audioComponentDescription(kAudioUnitType_FormatConverter, kAudioUnitSubType_AUConverter, kAudioUnitManufacturer_Apple);
+    status = AUGraphAddNode(_auGraph, &converterDesp, &_convertNode);
+    
     AudioComponentDescription mixDesp = mh_audioComponentDescription(kAudioUnitType_Mixer, kAudioUnitSubType_MultiChannelMixer, kAudioUnitManufacturer_Apple);
     status = AUGraphAddNode(_auGraph, &mixDesp, &_mixNode);
     CheckStatus(status, @"Could not add convert Node to AUGraph");
@@ -87,25 +93,44 @@
     OSStatus status;
     status = AUGraphNodeInfo(_auGraph, _ioNode, NULL, &_ioUnit);
     CheckStatus(status, @"Could not get AudioUnit from I/O node");
+    status = AUGraphNodeInfo(_auGraph, _convertNode, NULL, &_convertUnit);
+    CheckStatus(status, @"Could not retrieve node info for convert node");
     status = AUGraphNodeInfo(_auGraph, _mixNode, NULL, &_mixUnit);
     CheckStatus(status, @"Could not get AudioUnit from convert node");
+}
+-(AudioStreamBasicDescription)clientFormat32float
+{
+    UInt32 bytesPerSample = sizeof (Float32);
+    AudioStreamBasicDescription clientFormat32float;
+    clientFormat32float.mFormatID          = kAudioFormatLinearPCM;
+    clientFormat32float.mFormatFlags       = kAudioFormatFlagsNativeFloatPacked | kAudioFormatFlagIsNonInterleaved;
+    clientFormat32float.mBytesPerPacket    = bytesPerSample;
+    clientFormat32float.mFramesPerPacket   = 1;
+    clientFormat32float.mBytesPerFrame     = bytesPerSample;
+    clientFormat32float.mChannelsPerFrame  = 2;
+    clientFormat32float.mBitsPerChannel    = 8 * bytesPerSample;
+    clientFormat32float.mSampleRate        = sampleRate;
+    return clientFormat32float;
 }
 -(void)setAudioUnitProperties
 {
     OSStatus status;
     AudioStreamBasicDescription pcmSreamFormat = k_noninterleavedPCMFormatWithChannels(2);
+    AudioStreamBasicDescription clientFormat32float = [self clientFormat32float];
 
     UInt32 enableIO = 1;
     status = AudioUnitSetProperty(_ioUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Input, 1, &enableIO, sizeof(enableIO));
-    
     status = AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, &pcmSreamFormat, sizeof(pcmSreamFormat));
-    AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &pcmSreamFormat, sizeof(pcmSreamFormat));
- 
+    AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &clientFormat32float, sizeof(clientFormat32float));
+
+    AudioUnitSetProperty(_convertUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &pcmSreamFormat, sizeof(pcmSreamFormat));
+    AudioUnitSetProperty(_convertUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &clientFormat32float, sizeof(clientFormat32float));
     
     UInt32 mixerElementCount = 1;
     AudioUnitSetProperty(_mixUnit, kAudioUnitProperty_ElementCount, kAudioUnitScope_Input, 0, &mixerElementCount, sizeof(mixerElementCount));
-    AudioUnitSetProperty(_mixUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &pcmSreamFormat, sizeof(pcmSreamFormat));
-    AudioUnitSetProperty(_mixUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &pcmSreamFormat, sizeof(pcmSreamFormat));
+    AudioUnitSetProperty(_mixUnit, kAudioUnitProperty_SampleRate, kAudioUnitScope_Output, 0,
+                                  &sampleRate, sizeof(sampleRate));
+    AudioUnitSetProperty(_mixUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &clientFormat32float, sizeof(clientFormat32float));
 
 }
 static OSStatus renderCallBack(void * inRefCon, AudioUnitRenderActionFlags * ioActionFlags, const AudioTimeStamp * inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * __nullable ioData)
@@ -121,9 +146,10 @@ static OSStatus renderCallBack(void * inRefCon, AudioUnitRenderActionFlags * ioA
 -(void)makeNodeConnections
 {
     OSStatus status = noErr;
-    status = AUGraphConnectNodeInput(_auGraph, _ioNode, 1, _mixNode, 0);
+    status = AUGraphConnectNodeInput(_auGraph, _ioNode, 1, _convertNode, 0);
     CheckStatus(status, @"Could not connect I/O node to convert node");
-    //status = AUGraphConnectNodeInput(_auGraph, _mixNode, 0, _ioNode, 0);
+    status = AUGraphConnectNodeInput(_auGraph, _convertNode, 0, _mixNode, 0);
+    CheckStatus(status, @"Could not connect convert node to mix node");
     
     AURenderCallbackStruct finalRenderProc;
     finalRenderProc.inputProc = &renderCallBack;
@@ -234,7 +260,7 @@ static OSStatus renderCallBack(void * inRefCon, AudioUnitRenderActionFlags * ioA
 /// @param channels 声道数
 AudioStreamBasicDescription k_noninterleavedPCMFormatWithChannels(UInt32 channels)
 {
-    UInt32 bytePerSample = sizeof(Float32);
+    UInt32 bytePerSample = sizeof(SInt32);
     
     AudioStreamBasicDescription asbd;
     bzero(&asbd, sizeof(asbd));

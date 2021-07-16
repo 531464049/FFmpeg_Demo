@@ -10,16 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class MHVideoDecoder;
-@protocol MHVideoDecoderDelegate <NSObject>
-
-@end
-
-
 @interface MHVideoDecoder : NSObject
 
-@property(nonatomic,weak)id <MHVideoDecoderDelegate> delegate;
-
+@property(nonatomic,assign,readonly)float duration;
+@property(nonatomic,assign,readonly)float position;
 @property(nonatomic,assign,readonly)BOOL isFileOpend;
 @property(nonatomic,assign,readonly)BOOL isEndOfFile;
 
@@ -28,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)openFile:(NSString *)filePath;
 
 -(NSArray *)decodeFrames:(CGFloat)minDuration;
+
+-(void)updatePosition:(float)position;
 
 -(void)destoryDecoder;
 

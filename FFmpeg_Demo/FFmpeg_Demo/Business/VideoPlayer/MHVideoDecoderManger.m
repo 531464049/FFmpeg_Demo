@@ -7,7 +7,7 @@
 
 #import "MHVideoDecoderManger.h"
 
-@interface MHVideoDecoderManger ()<MHVideoDecoderDelegate>
+@interface MHVideoDecoderManger ()
 {
     dispatch_queue_t _decoderQueue;
     float _bufferedDuration;
@@ -16,14 +16,15 @@
     NSMutableArray<MHVideoFrame *> * _videoFrames;
     NSMutableArray<MHAudioFrame *> * _audioFrames;
     BOOL _buffered;
-    void * _curentAudioFrame;
-    int _curentAudioFramePos;
 }
 @property(nonatomic,strong)MHAudioDecodeParameter * audioParameter;
 @end
 
 @implementation MHVideoDecoderManger
-
+-(BOOL)isEndOfFile
+{
+    return self.decoder.isEndOfFile;
+}
 -(instancetype)initWithPath:(NSString *)videoPath videoPreInView:(UIView *)inView preFrame:(CGRect)preFrame;
 {
     self = [super init];
@@ -36,7 +37,6 @@
         _audioPlayer = [[MHAudioPlayer alloc] initWith:self.audioParameter];
 
         _decoder = [[MHVideoDecoder alloc] initWith:self.audioParameter];
-        _decoder.delegate = self;
         
         _decoderQueue = dispatch_queue_create("mhVideoDecoder", DISPATCH_QUEUE_SERIAL);
         _videoFrames = [NSMutableArray array];
@@ -45,10 +45,12 @@
         _minBufferedDuration = 0.3;
         _moviePosition = 0.0;
         _buffered = NO;
+        _movieDuraiton = 0.0;
         
         __weak typeof(self) weakSelf = self;
         dispatch_async(_decoderQueue, ^{
             [weakSelf.decoder openFile:videoPath];
+            self->_movieDuraiton = weakSelf.decoder.duration;
         });
     }
     return self;
@@ -62,6 +64,10 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self play];
         });
+        return;
+    }
+    if (self.decoder.isEndOfFile) {
+        [self setMoviePosition:0.0];
         return;
     }
     _playing = YES;
@@ -82,7 +88,7 @@
     if (frame) {
         NSLog(@"当前帧的时间戳:%f, 当前帧的持续时间:%f", frame.position, frame.duration);
         [self.videoView render:frame];
-        _moviePosition = frame.position;
+        [self updateMoviePosition:frame.position];
         [frame clearFrame];
     }
     if (self.decoder.isEndOfFile) {
@@ -201,19 +207,47 @@
             //音频滞后
             [_audioFrames removeObjectAtIndex:0];
             [frame clearFrame];
-            frame = [self getRnderAudioFrame];
+            return [self getRnderAudioFrame];
+        }else {
+            [_audioFrames removeObjectAtIndex:0];
+            return frame;
         }
-        [_audioFrames removeObjectAtIndex:0];
-        return frame;
     }
 }
 -(void)pause
 {
-    
+    _playing = NO;
+    [self.audioPlayer stop];
+    self.audioPlayer.inputBlock = nil;
+}
+-(void)updateMoviePosition:(float)position
+{
+    _moviePosition = position;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(videoDecoderManager:duration:)]) {
+        [self.delegate videoDecoderManager:self duration:position];
+    }
 }
 -(void)setMoviePosition:(float)position
 {
+    [self pause];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self updatePosition:position];
+    });
+}
+-(void)updatePosition:(float)position
+{
+    [self freeFrames];
+    position = MAX(0, position);
+    position = MIN(_decoder.duration-1, position);
     
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(_decoderQueue, ^{
+        [weakSelf.decoder updatePosition:position];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf updateMoviePosition:weakSelf.decoder.position];
+            [weakSelf play];
+        });
+    });
 }
 -(void)freeFrames
 {
@@ -227,12 +261,9 @@
         for (MHAudioFrame * frame in _audioFrames) {
             [frame clearFrame];
         }
-        [_videoFrames removeAllObjects];
-        if (_curentAudioFrame) {
-            free(_curentAudioFrame);
-            _curentAudioFrame = NULL;
-        }
+        [_audioFrames removeAllObjects];
     }
+    _bufferedDuration = 0;
 }
 -(void)destory
 {

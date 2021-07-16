@@ -534,7 +534,6 @@
 		994960A726957BB600BF9BDD /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				994960B42698261300BF9BDD /* player */,
 				994960AB2695832900BF9BDD /* VideoPlayerVC.h */,
 				994960AC2695832900BF9BDD /* VideoPlayerVC.m */,
 				993E38BD269EB3E500A68C1D /* MHVideoDecoderManger.h */,
@@ -543,13 +542,6 @@
 				994960A926957BCE00BF9BDD /* MHVideoDecoder.m */,
 				993E38C0269EC65B00A68C1D /* MHDecoderModel.h */,
 				993E38C1269EC65B00A68C1D /* MHDecoderModel.m */,
-			);
-			path = VideoPlayer;
-			sourceTree = "<group>";
-		};
-		994960B42698261300BF9BDD /* player */ = {
-			isa = PBXGroup;
-			children = (
 				998D9681269C115A007CF6EB /* MHVideoGLView.h */,
 				998D9682269C115A007CF6EB /* MHVideoGLView.m */,
 				998D9685269C123C007CF6EB /* MHVideoGLShader.fsh */,
@@ -557,7 +549,7 @@
 				993E38BA269E82DF00A68C1D /* MHAudioPlayer.h */,
 				993E38BB269E82DF00A68C1D /* MHAudioPlayer.m */,
 			);
-			path = player;
+			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
 		99FCB1E2268D773800EBD470 /* lib */ = {

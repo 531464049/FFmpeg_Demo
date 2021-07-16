@@ -36,7 +36,7 @@
 }
 -(void)setupAudioSession
 {
-    MHAudioSession.sharedInstance.category = AVAudioSessionCategoryPlayAndRecord;
+    MHAudioSession.sharedInstance.category = AVAudioSessionCategoryPlayback;
     MHAudioSession.sharedInstance.preferredSampleRate = 44100.0;
     MHAudioSession.sharedInstance.active = YES;
     [MHAudioSession.sharedInstance addRouteChangeListener];

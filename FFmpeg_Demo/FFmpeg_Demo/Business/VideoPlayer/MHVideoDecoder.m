@@ -44,6 +44,8 @@
         _audioParameter = parameter;
         _isDecoding = NO;
         _isEndOfFile = NO;
+        _duration = 0.0;
+        _position = 0.0;
     }
     return self;
 }
@@ -97,7 +99,12 @@
     if (result < 0) {
         NSLog(@"open audio stream fail ...");
     }
-    
+    //获取视频时长
+    if (pFormatCtx->duration == AV_NOPTS_VALUE) {
+        _duration = MAXFLOAT;
+    }else{
+        _duration = (float)(pFormatCtx->duration / AV_TIME_BASE);
+    }
     //初始化 AVPacket
     _packet = av_packet_alloc();
     //文件打开
@@ -240,6 +247,7 @@ AVFrame * alloc_image(enum AVPixelFormat pix_fmt, int width, int height)
             MHMovieFrame * frame;
             if (_packet->stream_index == _videoStreamIndex) {
                 frame = [self decodeVideo:_packet];
+                _position = frame.position;
             }else if (_packet->stream_index == _audioStreamIndex) {
                 frame = [self decodeAudio:_packet];
             }
@@ -255,6 +263,21 @@ AVFrame * alloc_image(enum AVPixelFormat pix_fmt, int width, int height)
     }
     _isDecoding = NO;
     return result;
+}
+-(void)updatePosition:(float)position
+{
+    _position = position;
+    _isEndOfFile = NO;
+    if (_videoStreamIndex != -1) {
+        int64_t ts = (int64_t)(position / _videoTimeBase);
+        avformat_seek_file(pFormatCtx, _videoStreamIndex, ts, ts, ts, AVSEEK_FLAG_FRAME);
+        avcodec_flush_buffers(pVideoCodecCtx);
+    }
+    if (_audioStreamIndex != -1) {
+        int64_t ts = (int64_t)(position / _audioTimeBase);
+        avformat_seek_file(pFormatCtx, _audioStreamIndex, ts, ts, ts, AVSEEK_FLAG_FRAME);
+        avcodec_flush_buffers(pAudioCodecCtx);
+    }
 }
 -(MHVideoFrame *)decodeVideo:(AVPacket *)packet
 {
