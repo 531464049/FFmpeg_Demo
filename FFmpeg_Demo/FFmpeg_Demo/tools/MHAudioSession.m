@@ -77,7 +77,7 @@
     AVAudioSessionRouteDescription * curentDescription = AVAudioSession.sharedInstance.currentRoute;
     if (curentDescription) {
         if ([AVAudioSession.sharedInstance usingWiredMicrophone]) {
-            
+            NSLog(@"222");
         }else{
             if (![AVAudioSession.sharedInstance usingBlueTooth]) {
                 [AVAudioSession.sharedInstance overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];

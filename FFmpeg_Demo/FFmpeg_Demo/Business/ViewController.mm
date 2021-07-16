@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "Mp3Encoder.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -21,11 +22,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.titleArr = @[@"AudioRecoder",
-                      @"AUPlayer"];
+                      @"AUPlayer",
+                      @"VideoPlayer"];
     self.desArr = @[@"录音",
-                    @"AudioFilePlayer Unit + RemotelIO Unit 音频播放器"];
+                    @"AudioFilePlayer Unit + RemotelIO Unit 音频播放器",
+                    @"VideoPlayer"];
     self.vcArr = @[@"AudioRecoderVC",
-                   @"AUPlayerVC"];
+                   @"AUPlayerVC",
+                   @"VideoPlayerVC"];
     self.tabView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tabView .showsVerticalScrollIndicator = NO;
     self.tabView .showsHorizontalScrollIndicator = NO;
@@ -33,6 +37,7 @@
     self.tabView .dataSource = self;
     self.tabView .tableFooterView = [UIView new];
     [self.view addSubview:self.tabView];
+    
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.titleArr.count;

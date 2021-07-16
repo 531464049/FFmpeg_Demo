@@ -6,41 +6,22 @@
 //
 
 #import "MHAudioRecoder.h"
-#import "MHAudioSession.h"
+//#import "MHAudioSession.h"
 #import "MHUtil.h"
-/**
- * Setup AudioSession
- *  1: Category
- *  2: Set Listener
- *      Interrupt Listener
- *      AudioRoute Change Listener
- *      Hardwate output Volume Listener
- *  3: Set IO BufferDuration
- *  4: Active AudioSession
- *
- * Setup AudioUnit
- *  1:Build AudioComponentDescription To Build AudioUnit Instance
- *  2:Build AudioStreamBasicDescription To Set AudioUnit Property
- *  3:Connect Node Or Set RenderCallback For AudioUnit
- *  4:Initialize AudioUnit
- *  5:Initialize AudioUnit
- *  6:AudioOutputUnitStart
- *
- **/
 
 @interface MHAudioRecoder ()
 {
-    AudioUnitElement ioInputElement;
-    AudioUnitElement ioOutputElement;
     Float64 sampleRate;
     NSString * _destinationFilepath;
     ExtAudioFileRef _finalAudioFile;
 }
 @property(nonatomic,assign)AUGraph auGraph;
+
 @property(nonatomic,assign)AUNode ioNode;
 @property(nonatomic,assign)AudioUnit ioUnit;
-@property(nonatomic,assign)AUNode convertNode;
-@property(nonatomic,assign)AudioUnit convertUnit;
+
+@property(nonatomic,assign)AUNode mixNode;
+@property(nonatomic,assign)AudioUnit mixUnit;
 
 @end
 
@@ -50,8 +31,6 @@
 {
     self = [super init];
     if (self) {
-        ioInputElement = 1;
-        ioOutputElement = 0;
         sampleRate = 44100.0;
         _destinationFilepath = path;
 
@@ -64,30 +43,27 @@
 #pragma mark - 初始化 AudioSession
 -(void)setupAudioSession
 {
-    MHAudioSession.sharedInstance.category = AVAudioSessionCategoryPlayAndRecord;
-    MHAudioSession.sharedInstance.preferredSampleRate = sampleRate;
-    MHAudioSession.sharedInstance.active = YES;
-    [MHAudioSession.sharedInstance addRouteChangeListener];
-    // 添加被打断的通知
+    NSError * error;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord
+                                     withOptions:AVAudioSessionCategoryOptionMixWithOthers | AVAudioSessionCategoryOptionAllowBluetooth | AVAudioSessionCategoryOptionDefaultToSpeaker
+                                           error:&error];
+    [[AVAudioSession sharedInstance] setPreferredSampleRate:44100.0 error:&error];
+    [[AVAudioSession sharedInstance] setPreferredIOBufferDuration:0.005 error:&error];
+    [[AVAudioSession sharedInstance] setActive:YES error:&error];
+    
     [self addAudioSessionInterruptedNoti];
 }
 #pragma mark - 初始化 AudioUnitGraph
 -(void)setupAudioUnitGraph
 {
     //创建AUGraph
-    //声明并实例化一个AUGraph
     OSStatus status = NewAUGraph(&_auGraph);
     CheckStatus(status, @"Could not create a new AUGraph");
-    //按照AudioUnit的描述在AUGraph中增加一个AUNode
     [self addAudioUnitNodes];
-    //打开AUGraph 其实打开AUGraph的过程也是间接实例化AUGraph中所有的AUNode 注意:必须在获取AudioUnit之前打开整个 AUGraph，否则我们将不能从对应的 AUNode 中获取正确的 AudioUnit
     status = AUGraphOpen(_auGraph);
     CheckStatus(status, @"Could not open AUGraph");
-    //在AUGraph中的某个Node里获得AudioUnit引用
     [self getUnitsFromNodes];
-    //设置AudioUnit属性
     [self setAudioUnitProperties];
-    //连接 AudioUnit AUNode
     [self makeNodeConnections];
     
     CAShow(_auGraph);
@@ -97,12 +73,12 @@
 -(void)addAudioUnitNodes
 {
     OSStatus status;
-    AudioComponentDescription ioDesp = mh_audioComponentDescription(kAudioUnitType_Output, kAudioUnitSubType_RemoteIO, kAudioUnitManufacturer_Apple);
+    AudioComponentDescription ioDesp = mh_audioComponentDescription(kAudioUnitType_Output, kAudioUnitSubType_VoiceProcessingIO, kAudioUnitManufacturer_Apple);
     status = AUGraphAddNode(_auGraph, &ioDesp, &_ioNode);
     CheckStatus(status, @"Could not add I/O Node to AUGraph");
     
-    AudioComponentDescription converterDesp = mh_audioComponentDescription(kAudioUnitType_FormatConverter, kAudioUnitSubType_AUConverter, kAudioUnitManufacturer_Apple);
-    status = AUGraphAddNode(_auGraph, &converterDesp, &_convertNode);
+    AudioComponentDescription mixDesp = mh_audioComponentDescription(kAudioUnitType_Mixer, kAudioUnitSubType_MultiChannelMixer, kAudioUnitManufacturer_Apple);
+    status = AUGraphAddNode(_auGraph, &mixDesp, &_mixNode);
     CheckStatus(status, @"Could not add convert Node to AUGraph");
 }
 
@@ -111,44 +87,33 @@
     OSStatus status;
     status = AUGraphNodeInfo(_auGraph, _ioNode, NULL, &_ioUnit);
     CheckStatus(status, @"Could not get AudioUnit from I/O node");
-    status = AUGraphNodeInfo(_auGraph, _convertNode, NULL, &_convertUnit);
+    status = AUGraphNodeInfo(_auGraph, _mixNode, NULL, &_mixUnit);
     CheckStatus(status, @"Could not get AudioUnit from convert node");
 }
 -(void)setAudioUnitProperties
 {
     OSStatus status;
     AudioStreamBasicDescription pcmSreamFormat = k_noninterleavedPCMFormatWithChannels(2);
-    
-    UInt32 bytesPerSample = sizeof (Float32);
-    AudioStreamBasicDescription _clientFormat32float;
-    _clientFormat32float.mFormatID = kAudioFormatLinearPCM;
-    _clientFormat32float.mFormatFlags = kAudioFormatFlagsNativeFloatPacked | kAudioFormatFlagIsNonInterleaved;
-    _clientFormat32float.mBytesPerPacket = bytesPerSample;
-    _clientFormat32float.mFramesPerPacket = 1;
-    _clientFormat32float.mBytesPerFrame = bytesPerSample;
-    _clientFormat32float.mChannelsPerFrame = 2;
-    _clientFormat32float.mBitsPerChannel = 8 * bytesPerSample;
-    _clientFormat32float.mSampleRate = sampleRate;
-    
+
     UInt32 enableIO = 1;
-    status = AudioUnitSetProperty(_ioUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Input, ioInputElement, &enableIO, sizeof(enableIO));
-    CheckStatus(status, @"Could not set enable I/O on I/O unit input scope");
-    status = AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, ioInputElement, &pcmSreamFormat, sizeof(pcmSreamFormat));
-    CheckStatus(status, @"Could not set streamFormat on I/O unit output scope");
+    status = AudioUnitSetProperty(_ioUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Input, 1, &enableIO, sizeof(enableIO));
     
-//    AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, ioOutputElement, &_clientFormat32float, sizeof(_clientFormat32float));
-    
+    status = AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, &pcmSreamFormat, sizeof(pcmSreamFormat));
+    AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &pcmSreamFormat, sizeof(pcmSreamFormat));
  
-    AudioUnitSetProperty(_convertUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &pcmSreamFormat, sizeof(pcmSreamFormat));
-    AudioUnitSetProperty(_convertUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &_clientFormat32float, sizeof(_clientFormat32float));
-    status = AudioUnitSetProperty(_convertUnit, kAudioUnitProperty_SampleRate, kAudioUnitScope_Output, 0, &sampleRate, sizeof(sampleRate));
+    
+    UInt32 mixerElementCount = 1;
+    AudioUnitSetProperty(_mixUnit, kAudioUnitProperty_ElementCount, kAudioUnitScope_Input, 0, &mixerElementCount, sizeof(mixerElementCount));
+    AudioUnitSetProperty(_mixUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &pcmSreamFormat, sizeof(pcmSreamFormat));
+    AudioUnitSetProperty(_mixUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &pcmSreamFormat, sizeof(pcmSreamFormat));
+
 }
 static OSStatus renderCallBack(void * inRefCon, AudioUnitRenderActionFlags * ioActionFlags, const AudioTimeStamp * inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * __nullable ioData)
 {
     OSStatus status = noErr;
     __unsafe_unretained MHAudioRecoder * this = (__bridge MHAudioRecoder *)inRefCon;
-    // 从 _mixerUnit 获取数据
-    AudioUnitRender(this->_convertUnit, ioActionFlags, inTimeStamp, 0, inNumberFrames, ioData);
+    // 从 _convertUnit 获取数据
+    status = AudioUnitRender(this->_mixUnit, ioActionFlags, inTimeStamp, 0, inNumberFrames, ioData);
     // 将数据写入_finalAudioFile
     status = ExtAudioFileWriteAsync(this->_finalAudioFile, inNumberFrames, ioData);
     return status;
@@ -156,8 +121,9 @@ static OSStatus renderCallBack(void * inRefCon, AudioUnitRenderActionFlags * ioA
 -(void)makeNodeConnections
 {
     OSStatus status = noErr;
-    status = AUGraphConnectNodeInput(_auGraph, _ioNode, 1, _convertNode, 0);
+    status = AUGraphConnectNodeInput(_auGraph, _ioNode, 1, _mixNode, 0);
     CheckStatus(status, @"Could not connect I/O node to convert node");
+    //status = AUGraphConnectNodeInput(_auGraph, _mixNode, 0, _ioNode, 0);
     
     AURenderCallbackStruct finalRenderProc;
     finalRenderProc.inputProc = &renderCallBack;
@@ -201,7 +167,7 @@ static OSStatus renderCallBack(void * inRefCon, AudioUnitRenderActionFlags * ioA
     UInt32 fSize = sizeof(clientFormat);
     memset(&clientFormat, 0, fSize);
     // 从output unit 获取音频数据格式
-    result = AudioUnitGetProperty(_convertUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &clientFormat, &fSize);
+    result = AudioUnitGetProperty(_mixUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &clientFormat, &fSize);
     CheckStatus(result, @"AudioUnitGetProperty failed");
     // 设置音频数据格式
     result = ExtAudioFileSetProperty(_finalAudioFile, kExtAudioFileProperty_ClientDataFormat, sizeof(clientFormat), &clientFormat);
@@ -258,20 +224,17 @@ static OSStatus renderCallBack(void * inRefCon, AudioUnitRenderActionFlags * ioA
     AUGraphStop(_auGraph);
     AUGraphUninitialize(_auGraph);
     AUGraphClose(_auGraph);
-    AUGraphRemoveNode(_auGraph, _convertNode);
     AUGraphRemoveNode(_auGraph, _ioNode);
     DisposeAUGraph(_auGraph);
     _ioUnit = NULL;
     _ioNode = 0;
-    _convertUnit = NULL;
-    _convertNode = 0;
     _auGraph = NULL;
 }
 /// 非交错左右声道音频PCM AudioStreamBasicDescription
 /// @param channels 声道数
 AudioStreamBasicDescription k_noninterleavedPCMFormatWithChannels(UInt32 channels)
 {
-    UInt32 bytePerSample = sizeof(SInt32);
+    UInt32 bytePerSample = sizeof(Float32);
     
     AudioStreamBasicDescription asbd;
     bzero(&asbd, sizeof(asbd));

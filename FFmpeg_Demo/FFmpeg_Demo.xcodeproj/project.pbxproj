@@ -25,10 +25,19 @@
 		9938F885268C64E800F9BFAC /* libfdk-aac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9938F884268C64E700F9BFAC /* libfdk-aac.a */; };
 		9938F88C268C650100F9BFAC /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9938F88B268C650100F9BFAC /* libmp3lame.a */; };
 		9938F893268C651900F9BFAC /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9938F892268C651900F9BFAC /* libx264.a */; };
+		993E38BC269E82DF00A68C1D /* MHAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 993E38BB269E82DF00A68C1D /* MHAudioPlayer.m */; };
+		993E38BF269EB3E500A68C1D /* MHVideoDecoderManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 993E38BE269EB3E500A68C1D /* MHVideoDecoderManger.m */; };
+		993E38C2269EC65C00A68C1D /* MHDecoderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 993E38C1269EC65B00A68C1D /* MHDecoderModel.m */; };
 		99495F652692B37A00BF9BDD /* AUPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99495F642692B37A00BF9BDD /* AUPlayerVC.m */; };
-		99495F682692B39700BF9BDD /* AudioPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99495F672692B39700BF9BDD /* AudioPlayerVC.m */; };
 		99495F6B2692D86C00BF9BDD /* MHAUGraphPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99495F6A2692D86C00BF9BDD /* MHAUGraphPlayer.m */; };
 		99495F6E2693F56400BF9BDD /* UIButton+MH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99495F6D2693F56400BF9BDD /* UIButton+MH.m */; };
+		994960AA26957BCE00BF9BDD /* MHVideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 994960A926957BCE00BF9BDD /* MHVideoDecoder.m */; };
+		994960AD2695832900BF9BDD /* VideoPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 994960AC2695832900BF9BDD /* VideoPlayerVC.m */; };
+		994960AF2695979300BF9BDD /* 111.aac in Resources */ = {isa = PBXBuildFile; fileRef = 994960AE2695979300BF9BDD /* 111.aac */; };
+		998D967D269BE514007CF6EB /* MHFFmpegUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 998D967C269BE514007CF6EB /* MHFFmpegUtil.m */; };
+		998D9683269C115A007CF6EB /* MHVideoGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 998D9682269C115A007CF6EB /* MHVideoGLView.m */; };
+		998D9686269C123C007CF6EB /* MHVideoGLShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 998D9684269C123C007CF6EB /* MHVideoGLShader.vsh */; };
+		998D9687269C123C007CF6EB /* MHVideoGLShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 998D9685269C123C007CF6EB /* MHVideoGLShader.fsh */; };
 		99FCB1D6268D559000EBD470 /* test2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 99FCB1D1268D559000EBD470 /* test2.mp3 */; };
 		99FCB1D7268D559000EBD470 /* test1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 99FCB1D2268D559000EBD470 /* test1.mp3 */; };
 		99FCB1D8268D559000EBD470 /* test2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 99FCB1D3268D559000EBD470 /* test2.mp4 */; };
@@ -82,21 +91,35 @@
 		9938F890268C651900F9BFAC /* x264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264.h; sourceTree = "<group>"; };
 		9938F892268C651900F9BFAC /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
 		9938F895268C65F500F9BFAC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		993E38BA269E82DF00A68C1D /* MHAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAudioPlayer.h; sourceTree = "<group>"; };
+		993E38BB269E82DF00A68C1D /* MHAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAudioPlayer.m; sourceTree = "<group>"; };
+		993E38BD269EB3E500A68C1D /* MHVideoDecoderManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoDecoderManger.h; sourceTree = "<group>"; };
+		993E38BE269EB3E500A68C1D /* MHVideoDecoderManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoDecoderManger.m; sourceTree = "<group>"; };
+		993E38C0269EC65B00A68C1D /* MHDecoderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHDecoderModel.h; sourceTree = "<group>"; };
+		993E38C1269EC65B00A68C1D /* MHDecoderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHDecoderModel.m; sourceTree = "<group>"; };
 		99495F632692B37A00BF9BDD /* AUPlayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUPlayerVC.h; sourceTree = "<group>"; };
 		99495F642692B37A00BF9BDD /* AUPlayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AUPlayerVC.m; sourceTree = "<group>"; };
-		99495F662692B39700BF9BDD /* AudioPlayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioPlayerVC.h; sourceTree = "<group>"; };
-		99495F672692B39700BF9BDD /* AudioPlayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerVC.m; sourceTree = "<group>"; };
 		99495F692692D86C00BF9BDD /* MHAUGraphPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAUGraphPlayer.h; sourceTree = "<group>"; };
 		99495F6A2692D86C00BF9BDD /* MHAUGraphPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAUGraphPlayer.m; sourceTree = "<group>"; };
 		99495F6C2693F56400BF9BDD /* UIButton+MH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+MH.h"; sourceTree = "<group>"; };
 		99495F6D2693F56400BF9BDD /* UIButton+MH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+MH.m"; sourceTree = "<group>"; };
+		994960A826957BCE00BF9BDD /* MHVideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoDecoder.h; sourceTree = "<group>"; };
+		994960A926957BCE00BF9BDD /* MHVideoDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoDecoder.m; sourceTree = "<group>"; };
+		994960AB2695832900BF9BDD /* VideoPlayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerVC.h; sourceTree = "<group>"; };
+		994960AC2695832900BF9BDD /* VideoPlayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerVC.m; sourceTree = "<group>"; };
+		994960AE2695979300BF9BDD /* 111.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = 111.aac; sourceTree = "<group>"; };
 		99604121268C68BD00C714BF /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		998D967B269BE514007CF6EB /* MHFFmpegUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHFFmpegUtil.h; sourceTree = "<group>"; };
+		998D967C269BE514007CF6EB /* MHFFmpegUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHFFmpegUtil.m; sourceTree = "<group>"; };
+		998D9681269C115A007CF6EB /* MHVideoGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoGLView.h; sourceTree = "<group>"; };
+		998D9682269C115A007CF6EB /* MHVideoGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoGLView.m; sourceTree = "<group>"; };
+		998D9684269C123C007CF6EB /* MHVideoGLShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MHVideoGLShader.vsh; sourceTree = "<group>"; };
+		998D9685269C123C007CF6EB /* MHVideoGLShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MHVideoGLShader.fsh; sourceTree = "<group>"; };
 		99FCB1D1268D559000EBD470 /* test2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test2.mp3; sourceTree = "<group>"; };
 		99FCB1D2268D559000EBD470 /* test1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test1.mp3; sourceTree = "<group>"; };
 		99FCB1D3268D559000EBD470 /* test2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.mp4; sourceTree = "<group>"; };
 		99FCB1D4268D559000EBD470 /* test1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test1.mp4; sourceTree = "<group>"; };
 		99FCB1D5268D559000EBD470 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		99FCB1E1268D736200EBD470 /* MHFFmpegHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHFFmpegHeader.h; sourceTree = "<group>"; };
 		99FCB1E3268D773800EBD470 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
 		99FCB1E4268D773800EBD470 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
 		99FCB1E5268D773800EBD470 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
@@ -316,7 +339,7 @@
 		9938F67F2689AD9E00F9BFAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				99495F622692B36300BF9BDD /* AudioPlayer */,
+				994960A726957BB600BF9BDD /* VideoPlayer */,
 				99495F612692B35300BF9BDD /* AUPlayer */,
 				99FCB294268EACE200EBD470 /* AudioRecoder */,
 				9938F6692689A7C700F9BFAC /* ViewController.h */,
@@ -328,11 +351,12 @@
 		9938F688268AB81100F9BFAC /* tools */ = {
 			isa = PBXGroup;
 			children = (
-				99FCB1E1268D736200EBD470 /* MHFFmpegHeader.h */,
 				9938F6802689ADB600F9BFAC /* Mp3Encoder.cpp */,
 				9938F6812689ADB600F9BFAC /* Mp3Encoder.h */,
 				9938F68C268AB8F700F9BFAC /* MHUtil.h */,
 				9938F68D268AB8F700F9BFAC /* MHUtil.m */,
+				998D967B269BE514007CF6EB /* MHFFmpegUtil.h */,
+				998D967C269BE514007CF6EB /* MHFFmpegUtil.m */,
 				99FCB29B268EAD6D00EBD470 /* MHAudioSession.h */,
 				99FCB29C268EAD6D00EBD470 /* MHAudioSession.m */,
 				99FCB29E268EAFD800EBD470 /* AVAudioSession+RouteUtils.h */,
@@ -345,6 +369,7 @@
 		9938F689268AB81F00F9BFAC /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				994960AE2695979300BF9BDD /* 111.aac */,
 				9938F68A268AB81F00F9BFAC /* vocal.pcm */,
 				99FCB1D5268D559000EBD470 /* logo.png */,
 				99FCB1D2268D559000EBD470 /* test1.mp3 */,
@@ -506,13 +531,33 @@
 			path = AUPlayer;
 			sourceTree = "<group>";
 		};
-		99495F622692B36300BF9BDD /* AudioPlayer */ = {
+		994960A726957BB600BF9BDD /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				99495F662692B39700BF9BDD /* AudioPlayerVC.h */,
-				99495F672692B39700BF9BDD /* AudioPlayerVC.m */,
+				994960B42698261300BF9BDD /* player */,
+				994960AB2695832900BF9BDD /* VideoPlayerVC.h */,
+				994960AC2695832900BF9BDD /* VideoPlayerVC.m */,
+				993E38BD269EB3E500A68C1D /* MHVideoDecoderManger.h */,
+				993E38BE269EB3E500A68C1D /* MHVideoDecoderManger.m */,
+				994960A826957BCE00BF9BDD /* MHVideoDecoder.h */,
+				994960A926957BCE00BF9BDD /* MHVideoDecoder.m */,
+				993E38C0269EC65B00A68C1D /* MHDecoderModel.h */,
+				993E38C1269EC65B00A68C1D /* MHDecoderModel.m */,
 			);
-			path = AudioPlayer;
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		994960B42698261300BF9BDD /* player */ = {
+			isa = PBXGroup;
+			children = (
+				998D9681269C115A007CF6EB /* MHVideoGLView.h */,
+				998D9682269C115A007CF6EB /* MHVideoGLView.m */,
+				998D9685269C123C007CF6EB /* MHVideoGLShader.fsh */,
+				998D9684269C123C007CF6EB /* MHVideoGLShader.vsh */,
+				993E38BA269E82DF00A68C1D /* MHAudioPlayer.h */,
+				993E38BB269E82DF00A68C1D /* MHAudioPlayer.m */,
+			);
+			path = player;
 			sourceTree = "<group>";
 		};
 		99FCB1E2268D773800EBD470 /* lib */ = {
@@ -772,7 +817,10 @@
 			files = (
 				9938F68B268AB81F00F9BFAC /* vocal.pcm in Resources */,
 				99FCB1D9268D559000EBD470 /* test1.mp4 in Resources */,
+				998D9687269C123C007CF6EB /* MHVideoGLShader.fsh in Resources */,
 				99FCB1DA268D559000EBD470 /* logo.png in Resources */,
+				994960AF2695979300BF9BDD /* 111.aac in Resources */,
+				998D9686269C123C007CF6EB /* MHVideoGLShader.vsh in Resources */,
 				99FCB1D8268D559000EBD470 /* test2.mp4 in Resources */,
 				99FCB1D6268D559000EBD470 /* test2.mp3 in Resources */,
 				99FCB1D7268D559000EBD470 /* test1.mp3 in Resources */,
@@ -790,16 +838,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				9938F68E268AB8F700F9BFAC /* MHUtil.m in Sources */,
+				998D967D269BE514007CF6EB /* MHFFmpegUtil.m in Sources */,
+				993E38C2269EC65C00A68C1D /* MHDecoderModel.m in Sources */,
 				9938F66B2689A7C700F9BFAC /* ViewController.mm in Sources */,
 				99495F6B2692D86C00BF9BDD /* MHAUGraphPlayer.m in Sources */,
-				99495F682692B39700BF9BDD /* AudioPlayerVC.m in Sources */,
+				994960AD2695832900BF9BDD /* VideoPlayerVC.m in Sources */,
 				99FCB2A0268EAFD800EBD470 /* AVAudioSession+RouteUtils.m in Sources */,
 				99495F652692B37A00BF9BDD /* AUPlayerVC.m in Sources */,
+				994960AA26957BCE00BF9BDD /* MHVideoDecoder.m in Sources */,
 				9938F6652689A7C700F9BFAC /* AppDelegate.m in Sources */,
+				993E38BC269E82DF00A68C1D /* MHAudioPlayer.m in Sources */,
 				99FCB297268EACF200EBD470 /* AudioRecoderVC.m in Sources */,
 				99495F6E2693F56400BF9BDD /* UIButton+MH.m in Sources */,
 				9938F6762689A7CC00F9BFAC /* main.m in Sources */,
+				998D9683269C115A007CF6EB /* MHVideoGLView.m in Sources */,
 				99FCB29A268EAD4E00EBD470 /* MHAudioRecoder.m in Sources */,
+				993E38BF269EB3E500A68C1D /* MHVideoDecoderManger.m in Sources */,
 				9938F6822689ADB600F9BFAC /* Mp3Encoder.cpp in Sources */,
 				99FCB29D268EAD6D00EBD470 /* MHAudioSession.m in Sources */,
 			);
@@ -963,6 +1017,10 @@
 					"$(PROJECT_DIR)/FFmpeg_Demo/3rd/lame/lib",
 					"$(PROJECT_DIR)/FFmpeg_Demo/3rd/x264/lib",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robot.MDMapAndCamera.FFmpeg-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -992,6 +1050,10 @@
 					"$(PROJECT_DIR)/FFmpeg_Demo/3rd/fdk_aac/lib",
 					"$(PROJECT_DIR)/FFmpeg_Demo/3rd/lame/lib",
 					"$(PROJECT_DIR)/FFmpeg_Demo/3rd/x264/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robot.MDMapAndCamera.FFmpeg-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

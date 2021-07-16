@@ -41,14 +41,14 @@
 /**
  * Decoder can use draw_horiz_band callback.
  */
-#define AV_CODEC_CAP_DRAW_HORIZ_BAND (1 << 0)
+#define AV_CODEC_CAP_DRAW_HORIZ_BAND     (1 <<  0)
 /**
  * Codec uses get_buffer() for allocating buffers and supports custom allocators.
  * If not set, it might not use get_buffer() at all or use operations that
  * assume the buffer was allocated by avcodec_default_get_buffer.
  */
-#define AV_CODEC_CAP_DR1 (1 << 1)
-#define AV_CODEC_CAP_TRUNCATED (1 << 3)
+#define AV_CODEC_CAP_DR1                 (1 <<  1)
+#define AV_CODEC_CAP_TRUNCATED           (1 <<  3)
 /**
  * Encoder or decoder requires flushing with NULL input at the end in order to
  * give the complete and correct output.
@@ -72,12 +72,12 @@
  *       each output packet. If this flag is not set, the pts and duration will
  *       be determined by libavcodec from the input frame.
  */
-#define AV_CODEC_CAP_DELAY (1 << 5)
+#define AV_CODEC_CAP_DELAY               (1 <<  5)
 /**
  * Codec can be fed a final frame with a smaller size.
  * This can be used to prevent truncation of the last audio samples.
  */
-#define AV_CODEC_CAP_SMALL_LAST_FRAME (1 << 6)
+#define AV_CODEC_CAP_SMALL_LAST_FRAME    (1 <<  6)
 
 /**
  * Codec can output multiple frames per AVPacket
@@ -90,32 +90,32 @@
  * prohibiting stream copy in many cases thus it should only be considered
  * as a last resort.
  */
-#define AV_CODEC_CAP_SUBFRAMES (1 << 8)
+#define AV_CODEC_CAP_SUBFRAMES           (1 <<  8)
 /**
  * Codec is experimental and is thus avoided in favor of non experimental
  * encoders
  */
-#define AV_CODEC_CAP_EXPERIMENTAL (1 << 9)
+#define AV_CODEC_CAP_EXPERIMENTAL        (1 <<  9)
 /**
  * Codec should fill in channel configuration and samplerate instead of container
  */
-#define AV_CODEC_CAP_CHANNEL_CONF (1 << 10)
+#define AV_CODEC_CAP_CHANNEL_CONF        (1 << 10)
 /**
  * Codec supports frame-level multithreading.
  */
-#define AV_CODEC_CAP_FRAME_THREADS (1 << 12)
+#define AV_CODEC_CAP_FRAME_THREADS       (1 << 12)
 /**
  * Codec supports slice-based (or partition-based) multithreading.
  */
-#define AV_CODEC_CAP_SLICE_THREADS (1 << 13)
+#define AV_CODEC_CAP_SLICE_THREADS       (1 << 13)
 /**
  * Codec supports changed parameters at any point.
  */
-#define AV_CODEC_CAP_PARAM_CHANGE (1 << 14)
+#define AV_CODEC_CAP_PARAM_CHANGE        (1 << 14)
 /**
  * Codec supports avctx->thread_count == 0 (auto).
  */
-#define AV_CODEC_CAP_AUTO_THREADS (1 << 15)
+#define AV_CODEC_CAP_AUTO_THREADS        (1 << 15)
 /**
  * Audio encoder supports receiving a different number of samples in each call.
  */
@@ -129,17 +129,17 @@
  * A decoder marked with this flag should only be used as last resort
  * choice for probing.
  */
-#define AV_CODEC_CAP_AVOID_PROBING (1 << 17)
+#define AV_CODEC_CAP_AVOID_PROBING       (1 << 17)
 
 #if FF_API_UNUSED_CODEC_CAPS
 /**
  * Deprecated and unused. Use AVCodecDescriptor.props instead
  */
-#define AV_CODEC_CAP_INTRA_ONLY 0x40000000
+#define AV_CODEC_CAP_INTRA_ONLY       0x40000000
 /**
  * Deprecated and unused. Use AVCodecDescriptor.props instead
  */
-#define AV_CODEC_CAP_LOSSLESS 0x80000000
+#define AV_CODEC_CAP_LOSSLESS         0x80000000
 #endif
 
 /**
@@ -147,14 +147,14 @@
  * identify a non-hwaccel hardware decoder. For information about hwaccels, use
  * avcodec_get_hw_config() instead.
  */
-#define AV_CODEC_CAP_HARDWARE (1 << 18)
+#define AV_CODEC_CAP_HARDWARE            (1 << 18)
 
 /**
  * Codec is potentially backed by a hardware implementation, but not
  * necessarily. This is used instead of AV_CODEC_CAP_HARDWARE, if the
  * implementation provides some sort of internal fallback.
  */
-#define AV_CODEC_CAP_HYBRID (1 << 19)
+#define AV_CODEC_CAP_HYBRID              (1 << 19)
 
 /**
  * This codec takes the reordered_opaque field from input AVFrames
@@ -168,13 +168,12 @@
  * not set, the encoder must be closed and reopened to ensure that no frames
  * remain pending.
  */
-#define AV_CODEC_CAP_ENCODER_FLUSH (1 << 21)
+#define AV_CODEC_CAP_ENCODER_FLUSH   (1 << 21)
 
 /**
  * AVProfile.
  */
-typedef struct AVProfile
-{
+typedef struct AVProfile {
     int profile;
     const char *name; ///< short name for the profile
 } AVProfile;
@@ -188,8 +187,7 @@ struct AVPacket;
 /**
  * AVCodec.
  */
-typedef struct AVCodec
-{
+typedef struct AVCodec {
     /**
      * Name of the codec implementation.
      * The name is globally unique among encoders and among decoders (but an
@@ -202,7 +200,7 @@ typedef struct AVCodec
      * You should use the NULL_IF_CONFIG_SMALL() macro to define it.
      */
     const char *long_name;
-    enum FFAVMediaType type;
+    enum DS_AVMediaType type;
     enum AVCodecID id;
     /**
      * Codec capabilities.
@@ -213,7 +211,7 @@ typedef struct AVCodec
     const enum AVPixelFormat *pix_fmts;     ///< array of supported pixel formats, or NULL if unknown, array is terminated by -1
     const int *supported_samplerates;       ///< array of supported audio samplerates, or NULL if unknown, array is terminated by 0
     const enum AVSampleFormat *sample_fmts; ///< array of supported sample formats, or NULL if unknown, array is terminated by -1
-    const uint64_t *channel_layouts;        ///< array of support channel layouts, or NULL if unknown. array is terminated by 0
+    const uint64_t *channel_layouts;         ///< array of support channel layouts, or NULL if unknown. array is terminated by 0
     uint8_t max_lowres;                     ///< maximum value for lowres supported by the decoder
     const AVClass *priv_class;              ///< AVClass for the private context
     const AVProfile *profiles;              ///< array of recognized profiles, or NULL if unknown, array is terminated by {FF_PROFILE_UNKNOWN}
@@ -384,8 +382,7 @@ int av_codec_is_encoder(const AVCodec *codec);
  */
 int av_codec_is_decoder(const AVCodec *codec);
 
-enum
-{
+enum {
     /**
      * The codec supports this format via the hw_device_ctx interface.
      *
@@ -413,7 +410,7 @@ enum
      * This format can be selected without any additional configuration -
      * no device or frames context is required.
      */
-    AV_CODEC_HW_CONFIG_METHOD_INTERNAL = 0x04,
+    AV_CODEC_HW_CONFIG_METHOD_INTERNAL      = 0x04,
     /**
      * The codec supports this format by some ad-hoc method.
      *
@@ -422,11 +419,10 @@ enum
      * this sort of configuration are deprecated and others should be
      * used in preference.)
      */
-    AV_CODEC_HW_CONFIG_METHOD_AD_HOC = 0x08,
+    AV_CODEC_HW_CONFIG_METHOD_AD_HOC        = 0x08,
 };
 
-typedef struct AVCodecHWConfig
-{
+typedef struct AVCodecHWConfig {
     /**
      * For decoders, a hardware pixel format which that decoder may be
      * able to decode to if suitable hardware is available.

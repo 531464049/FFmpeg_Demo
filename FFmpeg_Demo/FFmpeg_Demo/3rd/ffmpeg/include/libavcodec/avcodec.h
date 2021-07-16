@@ -224,38 +224,35 @@
 /**
  * @ingroup lavc_decoding
  */
-enum AVDiscard
-{
+enum AVDiscard{
     /* We leave some space between them for extensions (drop some
      * keyframes for intra-only or drop just some bidir frames). */
-    AVDISCARD_NONE = -16,    ///< discard nothing
-    AVDISCARD_DEFAULT = 0,   ///< discard useless packets like 0 size packets in avi
-    AVDISCARD_NONREF = 8,    ///< discard all non reference
-    AVDISCARD_BIDIR = 16,    ///< discard all bidirectional frames
-    AVDISCARD_NONINTRA = 24, ///< discard all non intra frames
-    AVDISCARD_NONKEY = 32,   ///< discard all frames except keyframes
-    AVDISCARD_ALL = 48,      ///< discard all
+    AVDISCARD_NONE    =-16, ///< discard nothing
+    AVDISCARD_DEFAULT =  0, ///< discard useless packets like 0 size packets in avi
+    AVDISCARD_NONREF  =  8, ///< discard all non reference
+    AVDISCARD_BIDIR   = 16, ///< discard all bidirectional frames
+    AVDISCARD_NONINTRA= 24, ///< discard all non intra frames
+    AVDISCARD_NONKEY  = 32, ///< discard all frames except keyframes
+    AVDISCARD_ALL     = 48, ///< discard all
 };
 
-enum AVAudioServiceType
-{
-    AV_AUDIO_SERVICE_TYPE_MAIN = 0,
-    AV_AUDIO_SERVICE_TYPE_EFFECTS = 1,
+enum AVAudioServiceType {
+    AV_AUDIO_SERVICE_TYPE_MAIN              = 0,
+    AV_AUDIO_SERVICE_TYPE_EFFECTS           = 1,
     AV_AUDIO_SERVICE_TYPE_VISUALLY_IMPAIRED = 2,
-    AV_AUDIO_SERVICE_TYPE_HEARING_IMPAIRED = 3,
-    AV_AUDIO_SERVICE_TYPE_DIALOGUE = 4,
-    AV_AUDIO_SERVICE_TYPE_COMMENTARY = 5,
-    AV_AUDIO_SERVICE_TYPE_EMERGENCY = 6,
-    AV_AUDIO_SERVICE_TYPE_VOICE_OVER = 7,
-    AV_AUDIO_SERVICE_TYPE_KARAOKE = 8,
-    AV_AUDIO_SERVICE_TYPE_NB, ///< Not part of ABI
+    AV_AUDIO_SERVICE_TYPE_HEARING_IMPAIRED  = 3,
+    AV_AUDIO_SERVICE_TYPE_DIALOGUE          = 4,
+    AV_AUDIO_SERVICE_TYPE_COMMENTARY        = 5,
+    AV_AUDIO_SERVICE_TYPE_EMERGENCY         = 6,
+    AV_AUDIO_SERVICE_TYPE_VOICE_OVER        = 7,
+    AV_AUDIO_SERVICE_TYPE_KARAOKE           = 8,
+    AV_AUDIO_SERVICE_TYPE_NB                   , ///< Not part of ABI
 };
 
 /**
  * @ingroup lavc_encoding
  */
-typedef struct RcOverride
-{
+typedef struct RcOverride{
     int start_frame;
     int end_frame;
     int qscale; // If this is 0 then quality_factor will be used instead.
@@ -271,92 +268,92 @@ typedef struct RcOverride
  * Allow decoders to produce frames with data planes that are not aligned
  * to CPU requirements (e.g. due to cropping).
  */
-#define AV_CODEC_FLAG_UNALIGNED (1 << 0)
+#define AV_CODEC_FLAG_UNALIGNED       (1 <<  0)
 /**
  * Use fixed qscale.
  */
-#define AV_CODEC_FLAG_QSCALE (1 << 1)
+#define AV_CODEC_FLAG_QSCALE          (1 <<  1)
 /**
  * 4 MV per MB allowed / advanced prediction for H.263.
  */
-#define AV_CODEC_FLAG_4MV (1 << 2)
+#define AV_CODEC_FLAG_4MV             (1 <<  2)
 /**
  * Output even those frames that might be corrupted.
  */
-#define AV_CODEC_FLAG_OUTPUT_CORRUPT (1 << 3)
+#define AV_CODEC_FLAG_OUTPUT_CORRUPT  (1 <<  3)
 /**
  * Use qpel MC.
  */
-#define AV_CODEC_FLAG_QPEL (1 << 4)
+#define AV_CODEC_FLAG_QPEL            (1 <<  4)
 /**
  * Don't output frames whose parameters differ from first
  * decoded frame in stream.
  */
-#define AV_CODEC_FLAG_DROPCHANGED (1 << 5)
+#define AV_CODEC_FLAG_DROPCHANGED     (1 <<  5)
 /**
  * Use internal 2pass ratecontrol in first pass mode.
  */
-#define AV_CODEC_FLAG_PASS1 (1 << 9)
+#define AV_CODEC_FLAG_PASS1           (1 <<  9)
 /**
  * Use internal 2pass ratecontrol in second pass mode.
  */
-#define AV_CODEC_FLAG_PASS2 (1 << 10)
+#define AV_CODEC_FLAG_PASS2           (1 << 10)
 /**
  * loop filter.
  */
-#define AV_CODEC_FLAG_LOOP_FILTER (1 << 11)
+#define AV_CODEC_FLAG_LOOP_FILTER     (1 << 11)
 /**
  * Only decode/encode grayscale.
  */
-#define AV_CODEC_FLAG_GRAY (1 << 13)
+#define AV_CODEC_FLAG_GRAY            (1 << 13)
 /**
  * error[?] variables will be set during encoding.
  */
-#define AV_CODEC_FLAG_PSNR (1 << 15)
+#define AV_CODEC_FLAG_PSNR            (1 << 15)
 /**
  * Input bitstream might be truncated at a random location
  * instead of only at frame boundaries.
  */
-#define AV_CODEC_FLAG_TRUNCATED (1 << 16)
+#define AV_CODEC_FLAG_TRUNCATED       (1 << 16)
 /**
  * Use interlaced DCT.
  */
-#define AV_CODEC_FLAG_INTERLACED_DCT (1 << 18)
+#define AV_CODEC_FLAG_INTERLACED_DCT  (1 << 18)
 /**
  * Force low delay.
  */
-#define AV_CODEC_FLAG_LOW_DELAY (1 << 19)
+#define AV_CODEC_FLAG_LOW_DELAY       (1 << 19)
 /**
  * Place global headers in extradata instead of every keyframe.
  */
-#define AV_CODEC_FLAG_GLOBAL_HEADER (1 << 22)
+#define AV_CODEC_FLAG_GLOBAL_HEADER   (1 << 22)
 /**
  * Use only bitexact stuff (except (I)DCT).
  */
-#define AV_CODEC_FLAG_BITEXACT (1 << 23)
+#define AV_CODEC_FLAG_BITEXACT        (1 << 23)
 /* Fx : Flag for H.263+ extra options */
 /**
  * H.263 advanced intra coding / MPEG-4 AC prediction
  */
-#define AV_CODEC_FLAG_AC_PRED (1 << 24)
+#define AV_CODEC_FLAG_AC_PRED         (1 << 24)
 /**
  * interlaced motion estimation
  */
-#define AV_CODEC_FLAG_INTERLACED_ME (1 << 29)
-#define AV_CODEC_FLAG_CLOSED_GOP (1U << 31)
+#define AV_CODEC_FLAG_INTERLACED_ME   (1 << 29)
+#define AV_CODEC_FLAG_CLOSED_GOP      (1U << 31)
 
 /**
  * Allow non spec compliant speedup tricks.
  */
-#define AV_CODEC_FLAG2_FAST (1 << 0)
+#define AV_CODEC_FLAG2_FAST           (1 <<  0)
 /**
  * Skip bitstream encoding.
  */
-#define AV_CODEC_FLAG2_NO_OUTPUT (1 << 2)
+#define AV_CODEC_FLAG2_NO_OUTPUT      (1 <<  2)
 /**
  * Place global headers at every keyframe instead of in extradata.
  */
-#define AV_CODEC_FLAG2_LOCAL_HEADER (1 << 3)
+#define AV_CODEC_FLAG2_LOCAL_HEADER   (1 <<  3)
 
 /**
  * timecode is in drop frame format. DEPRECATED!!!!
@@ -367,28 +364,28 @@ typedef struct RcOverride
  * Input bitstream might be truncated at a packet boundaries
  * instead of only at frame boundaries.
  */
-#define AV_CODEC_FLAG2_CHUNKS (1 << 15)
+#define AV_CODEC_FLAG2_CHUNKS         (1 << 15)
 /**
  * Discard cropping information from SPS.
  */
-#define AV_CODEC_FLAG2_IGNORE_CROP (1 << 16)
+#define AV_CODEC_FLAG2_IGNORE_CROP    (1 << 16)
 
 /**
  * Show all frames before the first keyframe
  */
-#define AV_CODEC_FLAG2_SHOW_ALL (1 << 22)
+#define AV_CODEC_FLAG2_SHOW_ALL       (1 << 22)
 /**
  * Export motion vectors through frame side data
  */
-#define AV_CODEC_FLAG2_EXPORT_MVS (1 << 28)
+#define AV_CODEC_FLAG2_EXPORT_MVS     (1 << 28)
 /**
  * Do not skip samples and export skip information as frame side data
  */
-#define AV_CODEC_FLAG2_SKIP_MANUAL (1 << 29)
+#define AV_CODEC_FLAG2_SKIP_MANUAL    (1 << 29)
 /**
  * Do not reset ASS ReadOrder field on flush (subtitles decoding)
  */
-#define AV_CODEC_FLAG2_RO_FLUSH_NOOP (1 << 30)
+#define AV_CODEC_FLAG2_RO_FLUSH_NOOP  (1 << 30)
 
 /* Unsupported options :
  *              Syntax Arithmetic coding (SAC)
@@ -403,11 +400,11 @@ typedef struct RcOverride
 /**
  * Export motion vectors through frame side data
  */
-#define AV_CODEC_EXPORT_DATA_MVS (1 << 0)
+#define AV_CODEC_EXPORT_DATA_MVS         (1 << 0)
 /**
  * Export encoder Producer Reference Time through packet side data
  */
-#define AV_CODEC_EXPORT_DATA_PRFT (1 << 1)
+#define AV_CODEC_EXPORT_DATA_PRFT        (1 << 1)
 /**
  * Decoding only.
  * Export the AVVideoEncParams structure through frame side data.
@@ -419,8 +416,7 @@ typedef struct RcOverride
  * This specifies the area which should be displayed.
  * Note there may be multiple such areas for one frame.
  */
-typedef struct AVPanScan
-{
+typedef struct AVPanScan {
     /**
      * id
      * - encoding: Set by user.
@@ -449,8 +445,7 @@ typedef struct AVPanScan
  * roughly corresponds to a subset the VBV parameters for MPEG-2 or HRD
  * parameters for H.264/HEVC.
  */
-typedef struct AVCPBProperties
-{
+typedef struct AVCPBProperties {
     /**
      * Maximum bitrate of the stream, in bits per second.
      * Zero if unknown or unspecified.
@@ -500,8 +495,7 @@ typedef struct AVCPBProperties
  * production time. The definition follows the Producer Reference Time ('prft')
  * as defined in ISO/IEC 14496-12
  */
-typedef struct AVProducerReferenceTime
-{
+typedef struct AVProducerReferenceTime {
     /**
      * A UTC timestamp, in microseconds, since Unix epoch (e.g, av_gettime()).
      */
@@ -529,8 +523,7 @@ struct AVCodecInternal;
  * structure field names for historic reasons or brevity.
  * sizeof(AVCodecContext) must not be used outside libav*.
  */
-typedef struct AVCodecContext
-{
+typedef struct AVCodecContext {
     /**
      * information on struct for av_log
      * - set by avcodec_alloc_context3
@@ -538,9 +531,9 @@ typedef struct AVCodecContext
     const AVClass *av_class;
     int log_level_offset;
 
-    enum FFAVMediaType codec_type; /* see AVMEDIA_TYPE_xxx */
-    const struct AVCodec *codec;
-    enum AVCodecID codec_id; /* see AV_CODEC_ID_xxx */
+    enum DS_AVMediaType codec_type; /* see AVMEDIA_TYPE_xxx */
+    const struct AVCodec  *codec;
+    enum AVCodecID     codec_id; /* see AV_CODEC_ID_xxx */
 
     /**
      * fourcc (LSB first, so "ABCD" -> ('D'<<24) + ('C'<<16) + ('B'<<8) + 'A').
@@ -688,6 +681,7 @@ typedef struct AVCodecContext
      */
     int delay;
 
+
     /* video only */
     /**
      * picture width / height.
@@ -781,7 +775,7 @@ typedef struct AVCodecContext
      * - encoding: unused
      * - decoding: Set by user, if not set the native format will be chosen.
      */
-    enum AVPixelFormat (*get_format)(struct AVCodecContext *s, const enum AVPixelFormat *fmt);
+    enum AVPixelFormat (*get_format)(struct AVCodecContext *s, const enum AVPixelFormat * fmt);
 
     /**
      * maximum number of B-frames between non-B-frames
@@ -802,7 +796,8 @@ typedef struct AVCodecContext
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int b_frame_strategy;
+    attribute_deprecated
+    int b_frame_strategy;
 #endif
 
     /**
@@ -822,7 +817,8 @@ typedef struct AVCodecContext
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int mpeg_quant;
+    attribute_deprecated
+    int mpeg_quant;
 #endif
 
     /**
@@ -885,9 +881,10 @@ typedef struct AVCodecContext
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int prediction_method;
-#define FF_PRED_LEFT 0
-#define FF_PRED_PLANE 1
+    attribute_deprecated
+     int prediction_method;
+#define FF_PRED_LEFT   0
+#define FF_PRED_PLANE  1
 #define FF_PRED_MEDIAN 2
 #endif
 
@@ -931,23 +928,23 @@ typedef struct AVCodecContext
      * - decoding: unused
      */
     int ildct_cmp;
-#define FF_CMP_SAD 0
-#define FF_CMP_SSE 1
-#define FF_CMP_SATD 2
-#define FF_CMP_DCT 3
-#define FF_CMP_PSNR 4
-#define FF_CMP_BIT 5
-#define FF_CMP_RD 6
-#define FF_CMP_ZERO 7
-#define FF_CMP_VSAD 8
-#define FF_CMP_VSSE 9
-#define FF_CMP_NSSE 10
-#define FF_CMP_W53 11
-#define FF_CMP_W97 12
-#define FF_CMP_DCTMAX 13
-#define FF_CMP_DCT264 14
-#define FF_CMP_MEDIAN_SAD 15
-#define FF_CMP_CHROMA 256
+#define FF_CMP_SAD          0
+#define FF_CMP_SSE          1
+#define FF_CMP_SATD         2
+#define FF_CMP_DCT          3
+#define FF_CMP_PSNR         4
+#define FF_CMP_BIT          5
+#define FF_CMP_RD           6
+#define FF_CMP_ZERO         7
+#define FF_CMP_VSAD         8
+#define FF_CMP_VSSE         9
+#define FF_CMP_NSSE         10
+#define FF_CMP_W53          11
+#define FF_CMP_W97          12
+#define FF_CMP_DCTMAX       13
+#define FF_CMP_DCT264       14
+#define FF_CMP_MEDIAN_SAD   15
+#define FF_CMP_CHROMA       256
 
     /**
      * ME diamond size & shape
@@ -965,7 +962,8 @@ typedef struct AVCodecContext
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int pre_me;
+    attribute_deprecated
+    int pre_me;
 #endif
 
     /**
@@ -1004,9 +1002,9 @@ typedef struct AVCodecContext
      * - decoding: Set by user.
      */
     int slice_flags;
-#define SLICE_FLAG_CODED_ORDER 0x0001 ///< draw_horiz_band() is called in coded order instead of display
-#define SLICE_FLAG_ALLOW_FIELD 0x0002 ///< allow draw_horiz_band() with field slices (MPEG-2 field pics)
-#define SLICE_FLAG_ALLOW_PLANE 0x0004 ///< allow draw_horiz_band() with 1 component at a time (SVQ1)
+#define SLICE_FLAG_CODED_ORDER    0x0001 ///< draw_horiz_band() is called in coded order instead of display
+#define SLICE_FLAG_ALLOW_FIELD    0x0002 ///< allow draw_horiz_band() with field slices (MPEG-2 field pics)
+#define SLICE_FLAG_ALLOW_PLANE    0x0004 ///< allow draw_horiz_band() with 1 component at a time (SVQ1)
 
     /**
      * macroblock decision mode
@@ -1014,9 +1012,9 @@ typedef struct AVCodecContext
      * - decoding: unused
      */
     int mb_decision;
-#define FF_MB_DECISION_SIMPLE 0 ///< uses mb_cmp
-#define FF_MB_DECISION_BITS 1   ///< chooses the one which needs the fewest bits
-#define FF_MB_DECISION_RD 2     ///< rate distortion
+#define FF_MB_DECISION_SIMPLE 0        ///< uses mb_cmp
+#define FF_MB_DECISION_BITS   1        ///< chooses the one which needs the fewest bits
+#define FF_MB_DECISION_RD     2        ///< rate distortion
 
     /**
      * custom intra quantization matrix
@@ -1038,10 +1036,12 @@ typedef struct AVCodecContext
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int scenechange_threshold;
+    attribute_deprecated
+    int scenechange_threshold;
 
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int noise_reduction;
+    attribute_deprecated
+    int noise_reduction;
 #endif
 
     /**
@@ -1083,7 +1083,8 @@ typedef struct AVCodecContext
     /**
      * @deprecated use encoder private options instead
      */
-    attribute_deprecated int me_penalty_compensation;
+    attribute_deprecated
+    int me_penalty_compensation;
 #endif
 
     /**
@@ -1094,7 +1095,8 @@ typedef struct AVCodecContext
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int brd_scale;
+    attribute_deprecated
+    int brd_scale;
 #endif
 
     /**
@@ -1113,7 +1115,8 @@ typedef struct AVCodecContext
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int chromaoffset;
+    attribute_deprecated
+    int chromaoffset;
 #endif
 
     /**
@@ -1125,7 +1128,8 @@ typedef struct AVCodecContext
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int b_sensitivity;
+    attribute_deprecated
+    int b_sensitivity;
 #endif
 
     /**
@@ -1187,7 +1191,7 @@ typedef struct AVCodecContext
      * - encoding: Set by user.
      * - decoding: Set by libavcodec.
      */
-    enum AVSampleFormat sample_fmt; ///< sample format
+    enum AVSampleFormat sample_fmt;  ///< sample format
 
     /* The following data should not be initialized. */
     /**
@@ -1349,11 +1353,12 @@ typedef struct AVCodecContext
      * - encoding: unused
      * - decoding: set by the caller before avcodec_open2().
      */
-    attribute_deprecated int refcounted_frames;
+    attribute_deprecated
+    int refcounted_frames;
 
     /* - encoding parameters */
-    float qcompress; ///< amount of qscale change between easy & hard scenes (0.0-1.0)
-    float qblur;     ///< amount of qscale smoothing over time (0.0-1.0)
+    float qcompress;  ///< amount of qscale change between easy & hard scenes (0.0-1.0)
+    float qblur;      ///< amount of qscale smoothing over time (0.0-1.0)
 
     /**
      * minimum quantizer
@@ -1427,33 +1432,39 @@ typedef struct AVCodecContext
     int rc_initial_buffer_occupancy;
 
 #if FF_API_CODER_TYPE
-#define FF_CODER_TYPE_VLC 0
-#define FF_CODER_TYPE_AC 1
-#define FF_CODER_TYPE_RAW 2
-#define FF_CODER_TYPE_RLE 3
+#define FF_CODER_TYPE_VLC       0
+#define FF_CODER_TYPE_AC        1
+#define FF_CODER_TYPE_RAW       2
+#define FF_CODER_TYPE_RLE       3
     /**
      * @deprecated use encoder private options instead
      */
-    attribute_deprecated int coder_type;
+    attribute_deprecated
+    int coder_type;
 #endif /* FF_API_CODER_TYPE */
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int context_model;
+    attribute_deprecated
+    int context_model;
 #endif
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int frame_skip_threshold;
+    attribute_deprecated
+    int frame_skip_threshold;
 
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int frame_skip_factor;
+    attribute_deprecated
+    int frame_skip_factor;
 
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int frame_skip_exp;
+    attribute_deprecated
+    int frame_skip_exp;
 
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int frame_skip_cmp;
+    attribute_deprecated
+    int frame_skip_cmp;
 #endif /* FF_API_PRIVATE_OPT */
 
     /**
@@ -1465,14 +1476,16 @@ typedef struct AVCodecContext
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int min_prediction_order;
-
-    /** @deprecated use encoder private options instead */
-    attribute_deprecated int max_prediction_order;
+    attribute_deprecated
+    int min_prediction_order;
 
     /** @deprecated use encoder private options instead */
     attribute_deprecated
-        int64_t timecode_frame_start;
+    int max_prediction_order;
+
+    /** @deprecated use encoder private options instead */
+    attribute_deprecated
+    int64_t timecode_frame_start;
 #endif
 
 #if FF_API_RTP_CALLBACK
@@ -1485,32 +1498,43 @@ typedef struct AVCodecContext
     /* with a Start Code (it should). H.263 does.   */
     /* mb_nb contains the number of macroblocks     */
     /* encoded in the RTP payload.                  */
-    attribute_deprecated void (*rtp_callback)(struct AVCodecContext *avctx, void *data, int size, int mb_nb);
+    attribute_deprecated
+    void (*rtp_callback)(struct AVCodecContext *avctx, void *data, int size, int mb_nb);
 #endif
 
 #if FF_API_PRIVATE_OPT
     /** @deprecated use encoder private options instead */
-    attribute_deprecated int rtp_payload_size; /* The size of the RTP payload: the coder will  */
-                                               /* do its best to deliver a chunk with size     */
-                                               /* below rtp_payload_size, the chunk will start */
-                                               /* with a start code on some codecs like H.263. */
-                                               /* This doesn't take account of any particular  */
-                                               /* headers inside the transmitted RTP payload.  */
+    attribute_deprecated
+    int rtp_payload_size;   /* The size of the RTP payload: the coder will  */
+                            /* do its best to deliver a chunk with size     */
+                            /* below rtp_payload_size, the chunk will start */
+                            /* with a start code on some codecs like H.263. */
+                            /* This doesn't take account of any particular  */
+                            /* headers inside the transmitted RTP payload.  */
 #endif
 
 #if FF_API_STAT_BITS
     /* statistics, used for 2-pass encoding */
-    attribute_deprecated int mv_bits;
-    attribute_deprecated int header_bits;
-    attribute_deprecated int i_tex_bits;
-    attribute_deprecated int p_tex_bits;
-    attribute_deprecated int i_count;
-    attribute_deprecated int p_count;
-    attribute_deprecated int skip_count;
-    attribute_deprecated int misc_bits;
+    attribute_deprecated
+    int mv_bits;
+    attribute_deprecated
+    int header_bits;
+    attribute_deprecated
+    int i_tex_bits;
+    attribute_deprecated
+    int p_tex_bits;
+    attribute_deprecated
+    int i_count;
+    attribute_deprecated
+    int p_count;
+    attribute_deprecated
+    int skip_count;
+    attribute_deprecated
+    int misc_bits;
 
     /** @deprecated this field is unused */
-    attribute_deprecated int frame_bits;
+    attribute_deprecated
+    int frame_bits;
 #endif
 
     /**
@@ -1534,21 +1558,21 @@ typedef struct AVCodecContext
      * - decoding: Set by user
      */
     int workaround_bugs;
-#define FF_BUG_AUTODETECT 1 ///< autodetection
-#define FF_BUG_XVID_ILACE 4
-#define FF_BUG_UMP4 8
-#define FF_BUG_NO_PADDING 16
-#define FF_BUG_AMV 32
-#define FF_BUG_QPEL_CHROMA 64
-#define FF_BUG_STD_QPEL 128
-#define FF_BUG_QPEL_CHROMA2 256
+#define FF_BUG_AUTODETECT       1  ///< autodetection
+#define FF_BUG_XVID_ILACE       4
+#define FF_BUG_UMP4             8
+#define FF_BUG_NO_PADDING       16
+#define FF_BUG_AMV              32
+#define FF_BUG_QPEL_CHROMA      64
+#define FF_BUG_STD_QPEL         128
+#define FF_BUG_QPEL_CHROMA2     256
 #define FF_BUG_DIRECT_BLOCKSIZE 512
-#define FF_BUG_EDGE 1024
-#define FF_BUG_HPEL_CHROMA 2048
-#define FF_BUG_DC_CLIP 4096
-#define FF_BUG_MS 8192 ///< Work around various bugs in Microsoft's broken decoders.
-#define FF_BUG_TRUNCATED 16384
-#define FF_BUG_IEDGE 32768
+#define FF_BUG_EDGE             1024
+#define FF_BUG_HPEL_CHROMA      2048
+#define FF_BUG_DC_CLIP          4096
+#define FF_BUG_MS               8192 ///< Work around various bugs in Microsoft's broken decoders.
+#define FF_BUG_TRUNCATED       16384
+#define FF_BUG_IEDGE           32768
 
     /**
      * strictly follow the standard (MPEG-4, ...).
@@ -1563,10 +1587,10 @@ typedef struct AVCodecContext
      * (=strictly conform to the specs)
      */
     int strict_std_compliance;
-#define FF_COMPLIANCE_VERY_STRICT 2 ///< Strictly conform to an older more strict version of the spec or reference software.
-#define FF_COMPLIANCE_STRICT 1      ///< Strictly conform to all the things in the spec no matter what consequences.
-#define FF_COMPLIANCE_NORMAL 0
-#define FF_COMPLIANCE_UNOFFICIAL -1   ///< Allow unofficial extensions
+#define FF_COMPLIANCE_VERY_STRICT   2 ///< Strictly conform to an older more strict version of the spec or reference software.
+#define FF_COMPLIANCE_STRICT        1 ///< Strictly conform to all the things in the spec no matter what consequences.
+#define FF_COMPLIANCE_NORMAL        0
+#define FF_COMPLIANCE_UNOFFICIAL   -1 ///< Allow unofficial extensions
 #define FF_COMPLIANCE_EXPERIMENTAL -2 ///< Allow nonstandardized experimental things.
 
     /**
@@ -1575,8 +1599,8 @@ typedef struct AVCodecContext
      * - decoding: Set by user.
      */
     int error_concealment;
-#define FF_EC_GUESS_MVS 1
-#define FF_EC_DEBLOCK 2
+#define FF_EC_GUESS_MVS   1
+#define FF_EC_DEBLOCK     2
 #define FF_EC_FAVOR_INTER 256
 
     /**
@@ -1585,31 +1609,31 @@ typedef struct AVCodecContext
      * - decoding: Set by user.
      */
     int debug;
-#define FF_DEBUG_PICT_INFO 1
-#define FF_DEBUG_RC 2
-#define FF_DEBUG_BITSTREAM 4
-#define FF_DEBUG_MB_TYPE 8
-#define FF_DEBUG_QP 16
+#define FF_DEBUG_PICT_INFO   1
+#define FF_DEBUG_RC          2
+#define FF_DEBUG_BITSTREAM   4
+#define FF_DEBUG_MB_TYPE     8
+#define FF_DEBUG_QP          16
 #if FF_API_DEBUG_MV
 /**
  * @deprecated this option does nothing
  */
-#define FF_DEBUG_MV 32
+#define FF_DEBUG_MV          32
 #endif
-#define FF_DEBUG_DCT_COEFF 0x00000040
-#define FF_DEBUG_SKIP 0x00000080
-#define FF_DEBUG_STARTCODE 0x00000100
-#define FF_DEBUG_ER 0x00000400
-#define FF_DEBUG_MMCO 0x00000800
-#define FF_DEBUG_BUGS 0x00001000
+#define FF_DEBUG_DCT_COEFF   0x00000040
+#define FF_DEBUG_SKIP        0x00000080
+#define FF_DEBUG_STARTCODE   0x00000100
+#define FF_DEBUG_ER          0x00000400
+#define FF_DEBUG_MMCO        0x00000800
+#define FF_DEBUG_BUGS        0x00001000
 #if FF_API_DEBUG_MV
-#define FF_DEBUG_VIS_QP 0x00002000
+#define FF_DEBUG_VIS_QP      0x00002000
 #define FF_DEBUG_VIS_MB_TYPE 0x00004000
 #endif
-#define FF_DEBUG_BUFFERS 0x00008000
-#define FF_DEBUG_THREADS 0x00010000
-#define FF_DEBUG_GREEN_MD 0x00800000
-#define FF_DEBUG_NOMC 0x01000000
+#define FF_DEBUG_BUFFERS     0x00008000
+#define FF_DEBUG_THREADS     0x00010000
+#define FF_DEBUG_GREEN_MD    0x00800000
+#define FF_DEBUG_NOMC        0x01000000
 
 #if FF_API_DEBUG_MV
     /**
@@ -1618,8 +1642,8 @@ typedef struct AVCodecContext
      * - decoding: Set by user.
      */
     int debug_mv;
-#define FF_DEBUG_VIS_MV_P_FOR 0x00000001  // visualize forward predicted MVs of P-frames
-#define FF_DEBUG_VIS_MV_B_FOR 0x00000002  // visualize forward predicted MVs of B-frames
+#define FF_DEBUG_VIS_MV_P_FOR  0x00000001 // visualize forward predicted MVs of P-frames
+#define FF_DEBUG_VIS_MV_B_FOR  0x00000002 // visualize forward predicted MVs of B-frames
 #define FF_DEBUG_VIS_MV_B_BACK 0x00000004 // visualize backward predicted MVs of B-frames
 #endif
 
@@ -1636,15 +1660,16 @@ typedef struct AVCodecContext
  * If AV_EF_EXPLODE is also set, a mismatching checksum will result in the
  * decoder returning an error.
  */
-#define AV_EF_CRCCHECK (1 << 0)
-#define AV_EF_BITSTREAM (1 << 1) ///< detect bitstream specification deviations
-#define AV_EF_BUFFER (1 << 2)    ///< detect improper bitstream length
-#define AV_EF_EXPLODE (1 << 3)   ///< abort decoding on minor error detection
+#define AV_EF_CRCCHECK  (1<<0)
+#define AV_EF_BITSTREAM (1<<1)          ///< detect bitstream specification deviations
+#define AV_EF_BUFFER    (1<<2)          ///< detect improper bitstream length
+#define AV_EF_EXPLODE   (1<<3)          ///< abort decoding on minor error detection
 
-#define AV_EF_IGNORE_ERR (1 << 15) ///< ignore errors and continue
-#define AV_EF_CAREFUL (1 << 16)    ///< consider things that violate the spec, are fast to calculate and have not been seen in the wild as errors
-#define AV_EF_COMPLIANT (1 << 17)  ///< consider all spec non compliances as errors
-#define AV_EF_AGGRESSIVE (1 << 18) ///< consider things that a sane encoder should not do as an error
+#define AV_EF_IGNORE_ERR (1<<15)        ///< ignore errors and continue
+#define AV_EF_CAREFUL    (1<<16)        ///< consider things that violate the spec, are fast to calculate and have not been seen in the wild as errors
+#define AV_EF_COMPLIANT  (1<<17)        ///< consider all spec non compliances as errors
+#define AV_EF_AGGRESSIVE (1<<18)        ///< consider things that a sane encoder should not do as an error
+
 
     /**
      * opaque 64-bit number (generally a PTS) that will be reordered and
@@ -1689,12 +1714,12 @@ typedef struct AVCodecContext
      * - decoding: unused
      */
     int dct_algo;
-#define FF_DCT_AUTO 0
+#define FF_DCT_AUTO    0
 #define FF_DCT_FASTINT 1
-#define FF_DCT_INT 2
-#define FF_DCT_MMX 3
+#define FF_DCT_INT     2
+#define FF_DCT_MMX     3
 #define FF_DCT_ALTIVEC 5
-#define FF_DCT_FAAN 6
+#define FF_DCT_FAAN    6
 
     /**
      * IDCT algorithm, see FF_IDCT_* below.
@@ -1702,27 +1727,27 @@ typedef struct AVCodecContext
      * - decoding: Set by user.
      */
     int idct_algo;
-#define FF_IDCT_AUTO 0
-#define FF_IDCT_INT 1
-#define FF_IDCT_SIMPLE 2
-#define FF_IDCT_SIMPLEMMX 3
-#define FF_IDCT_ARM 7
-#define FF_IDCT_ALTIVEC 8
-#define FF_IDCT_SIMPLEARM 10
-#define FF_IDCT_XVID 14
+#define FF_IDCT_AUTO          0
+#define FF_IDCT_INT           1
+#define FF_IDCT_SIMPLE        2
+#define FF_IDCT_SIMPLEMMX     3
+#define FF_IDCT_ARM           7
+#define FF_IDCT_ALTIVEC       8
+#define FF_IDCT_SIMPLEARM     10
+#define FF_IDCT_XVID          14
 #define FF_IDCT_SIMPLEARMV5TE 16
-#define FF_IDCT_SIMPLEARMV6 17
-#define FF_IDCT_FAAN 20
-#define FF_IDCT_SIMPLENEON 22
-#define FF_IDCT_NONE 24 /* Used by XvMC to extract IDCT coefficients with FF_IDCT_PERM_NONE */
-#define FF_IDCT_SIMPLEAUTO 128
+#define FF_IDCT_SIMPLEARMV6   17
+#define FF_IDCT_FAAN          20
+#define FF_IDCT_SIMPLENEON    22
+#define FF_IDCT_NONE          24 /* Used by XvMC to extract IDCT coefficients with FF_IDCT_PERM_NONE */
+#define FF_IDCT_SIMPLEAUTO    128
 
     /**
      * bits per sample/pixel from the demuxer (needed for huffyuv).
      * - encoding: Set by libavcodec.
      * - decoding: Set by user.
      */
-    int bits_per_coded_sample;
+     int bits_per_coded_sample;
 
     /**
      * Bits per sample/pixel of internal libavcodec pixel/sample format.
@@ -1737,7 +1762,7 @@ typedef struct AVCodecContext
      * - encoding: unused
      * - decoding: Set by user.
      */
-    int lowres;
+     int lowres;
 #endif
 
 #if FF_API_CODED_FRAME
@@ -1768,8 +1793,8 @@ typedef struct AVCodecContext
      * - decoding: Set by user, otherwise the default is used.
      */
     int thread_type;
-#define FF_THREAD_FRAME 1 ///< Decode more than one frame at once
-#define FF_THREAD_SLICE 2 ///< Decode more than one part of a single frame at once
+#define FF_THREAD_FRAME   1 ///< Decode more than one frame at once
+#define FF_THREAD_SLICE   2 ///< Decode more than one part of a single frame at once
 
     /**
      * Which multithreading methods are in use by the codec.
@@ -1824,124 +1849,124 @@ typedef struct AVCodecContext
      * - encoding: Set by user.
      * - decoding: unused
      */
-    int nsse_weight;
+     int nsse_weight;
 
     /**
      * profile
      * - encoding: Set by user.
      * - decoding: Set by libavcodec.
      */
-    int profile;
+     int profile;
 #define FF_PROFILE_UNKNOWN -99
 #define FF_PROFILE_RESERVED -100
 
 #define FF_PROFILE_AAC_MAIN 0
-#define FF_PROFILE_AAC_LOW 1
-#define FF_PROFILE_AAC_SSR 2
-#define FF_PROFILE_AAC_LTP 3
-#define FF_PROFILE_AAC_HE 4
+#define FF_PROFILE_AAC_LOW  1
+#define FF_PROFILE_AAC_SSR  2
+#define FF_PROFILE_AAC_LTP  3
+#define FF_PROFILE_AAC_HE   4
 #define FF_PROFILE_AAC_HE_V2 28
-#define FF_PROFILE_AAC_LD 22
-#define FF_PROFILE_AAC_ELD 38
+#define FF_PROFILE_AAC_LD   22
+#define FF_PROFILE_AAC_ELD  38
 #define FF_PROFILE_MPEG2_AAC_LOW 128
-#define FF_PROFILE_MPEG2_AAC_HE 131
+#define FF_PROFILE_MPEG2_AAC_HE  131
 
-#define FF_PROFILE_DNXHD 0
-#define FF_PROFILE_DNXHR_LB 1
-#define FF_PROFILE_DNXHR_SQ 2
-#define FF_PROFILE_DNXHR_HQ 3
-#define FF_PROFILE_DNXHR_HQX 4
-#define FF_PROFILE_DNXHR_444 5
+#define FF_PROFILE_DNXHD         0
+#define FF_PROFILE_DNXHR_LB      1
+#define FF_PROFILE_DNXHR_SQ      2
+#define FF_PROFILE_DNXHR_HQ      3
+#define FF_PROFILE_DNXHR_HQX     4
+#define FF_PROFILE_DNXHR_444     5
 
-#define FF_PROFILE_DTS 20
-#define FF_PROFILE_DTS_ES 30
-#define FF_PROFILE_DTS_96_24 40
-#define FF_PROFILE_DTS_HD_HRA 50
-#define FF_PROFILE_DTS_HD_MA 60
+#define FF_PROFILE_DTS         20
+#define FF_PROFILE_DTS_ES      30
+#define FF_PROFILE_DTS_96_24   40
+#define FF_PROFILE_DTS_HD_HRA  50
+#define FF_PROFILE_DTS_HD_MA   60
 #define FF_PROFILE_DTS_EXPRESS 70
 
-#define FF_PROFILE_MPEG2_422 0
-#define FF_PROFILE_MPEG2_HIGH 1
-#define FF_PROFILE_MPEG2_SS 2
-#define FF_PROFILE_MPEG2_SNR_SCALABLE 3
-#define FF_PROFILE_MPEG2_MAIN 4
+#define FF_PROFILE_MPEG2_422    0
+#define FF_PROFILE_MPEG2_HIGH   1
+#define FF_PROFILE_MPEG2_SS     2
+#define FF_PROFILE_MPEG2_SNR_SCALABLE  3
+#define FF_PROFILE_MPEG2_MAIN   4
 #define FF_PROFILE_MPEG2_SIMPLE 5
 
-#define FF_PROFILE_H264_CONSTRAINED (1 << 9) // 8+1; constraint_set1_flag
-#define FF_PROFILE_H264_INTRA (1 << 11)      // 8+3; constraint_set3_flag
+#define FF_PROFILE_H264_CONSTRAINED  (1<<9)  // 8+1; constraint_set1_flag
+#define FF_PROFILE_H264_INTRA        (1<<11) // 8+3; constraint_set3_flag
 
-#define FF_PROFILE_H264_BASELINE 66
-#define FF_PROFILE_H264_CONSTRAINED_BASELINE (66 | FF_PROFILE_H264_CONSTRAINED)
-#define FF_PROFILE_H264_MAIN 77
-#define FF_PROFILE_H264_EXTENDED 88
-#define FF_PROFILE_H264_HIGH 100
-#define FF_PROFILE_H264_HIGH_10 110
-#define FF_PROFILE_H264_HIGH_10_INTRA (110 | FF_PROFILE_H264_INTRA)
-#define FF_PROFILE_H264_MULTIVIEW_HIGH 118
-#define FF_PROFILE_H264_HIGH_422 122
-#define FF_PROFILE_H264_HIGH_422_INTRA (122 | FF_PROFILE_H264_INTRA)
-#define FF_PROFILE_H264_STEREO_HIGH 128
-#define FF_PROFILE_H264_HIGH_444 144
-#define FF_PROFILE_H264_HIGH_444_PREDICTIVE 244
-#define FF_PROFILE_H264_HIGH_444_INTRA (244 | FF_PROFILE_H264_INTRA)
-#define FF_PROFILE_H264_CAVLC_444 44
+#define FF_PROFILE_H264_BASELINE             66
+#define FF_PROFILE_H264_CONSTRAINED_BASELINE (66|FF_PROFILE_H264_CONSTRAINED)
+#define FF_PROFILE_H264_MAIN                 77
+#define FF_PROFILE_H264_EXTENDED             88
+#define FF_PROFILE_H264_HIGH                 100
+#define FF_PROFILE_H264_HIGH_10              110
+#define FF_PROFILE_H264_HIGH_10_INTRA        (110|FF_PROFILE_H264_INTRA)
+#define FF_PROFILE_H264_MULTIVIEW_HIGH       118
+#define FF_PROFILE_H264_HIGH_422             122
+#define FF_PROFILE_H264_HIGH_422_INTRA       (122|FF_PROFILE_H264_INTRA)
+#define FF_PROFILE_H264_STEREO_HIGH          128
+#define FF_PROFILE_H264_HIGH_444             144
+#define FF_PROFILE_H264_HIGH_444_PREDICTIVE  244
+#define FF_PROFILE_H264_HIGH_444_INTRA       (244|FF_PROFILE_H264_INTRA)
+#define FF_PROFILE_H264_CAVLC_444            44
 
-#define FF_PROFILE_VC1_SIMPLE 0
-#define FF_PROFILE_VC1_MAIN 1
-#define FF_PROFILE_VC1_COMPLEX 2
+#define FF_PROFILE_VC1_SIMPLE   0
+#define FF_PROFILE_VC1_MAIN     1
+#define FF_PROFILE_VC1_COMPLEX  2
 #define FF_PROFILE_VC1_ADVANCED 3
 
-#define FF_PROFILE_MPEG4_SIMPLE 0
-#define FF_PROFILE_MPEG4_SIMPLE_SCALABLE 1
-#define FF_PROFILE_MPEG4_CORE 2
-#define FF_PROFILE_MPEG4_MAIN 3
-#define FF_PROFILE_MPEG4_N_BIT 4
-#define FF_PROFILE_MPEG4_SCALABLE_TEXTURE 5
-#define FF_PROFILE_MPEG4_SIMPLE_FACE_ANIMATION 6
-#define FF_PROFILE_MPEG4_BASIC_ANIMATED_TEXTURE 7
-#define FF_PROFILE_MPEG4_HYBRID 8
-#define FF_PROFILE_MPEG4_ADVANCED_REAL_TIME 9
-#define FF_PROFILE_MPEG4_CORE_SCALABLE 10
-#define FF_PROFILE_MPEG4_ADVANCED_CODING 11
-#define FF_PROFILE_MPEG4_ADVANCED_CORE 12
+#define FF_PROFILE_MPEG4_SIMPLE                     0
+#define FF_PROFILE_MPEG4_SIMPLE_SCALABLE            1
+#define FF_PROFILE_MPEG4_CORE                       2
+#define FF_PROFILE_MPEG4_MAIN                       3
+#define FF_PROFILE_MPEG4_N_BIT                      4
+#define FF_PROFILE_MPEG4_SCALABLE_TEXTURE           5
+#define FF_PROFILE_MPEG4_SIMPLE_FACE_ANIMATION      6
+#define FF_PROFILE_MPEG4_BASIC_ANIMATED_TEXTURE     7
+#define FF_PROFILE_MPEG4_HYBRID                     8
+#define FF_PROFILE_MPEG4_ADVANCED_REAL_TIME         9
+#define FF_PROFILE_MPEG4_CORE_SCALABLE             10
+#define FF_PROFILE_MPEG4_ADVANCED_CODING           11
+#define FF_PROFILE_MPEG4_ADVANCED_CORE             12
 #define FF_PROFILE_MPEG4_ADVANCED_SCALABLE_TEXTURE 13
-#define FF_PROFILE_MPEG4_SIMPLE_STUDIO 14
-#define FF_PROFILE_MPEG4_ADVANCED_SIMPLE 15
+#define FF_PROFILE_MPEG4_SIMPLE_STUDIO             14
+#define FF_PROFILE_MPEG4_ADVANCED_SIMPLE           15
 
-#define FF_PROFILE_JPEG2000_CSTREAM_RESTRICTION_0 1
-#define FF_PROFILE_JPEG2000_CSTREAM_RESTRICTION_1 2
-#define FF_PROFILE_JPEG2000_CSTREAM_NO_RESTRICTION 32768
-#define FF_PROFILE_JPEG2000_DCINEMA_2K 3
-#define FF_PROFILE_JPEG2000_DCINEMA_4K 4
+#define FF_PROFILE_JPEG2000_CSTREAM_RESTRICTION_0   1
+#define FF_PROFILE_JPEG2000_CSTREAM_RESTRICTION_1   2
+#define FF_PROFILE_JPEG2000_CSTREAM_NO_RESTRICTION  32768
+#define FF_PROFILE_JPEG2000_DCINEMA_2K              3
+#define FF_PROFILE_JPEG2000_DCINEMA_4K              4
 
-#define FF_PROFILE_VP9_0 0
-#define FF_PROFILE_VP9_1 1
-#define FF_PROFILE_VP9_2 2
-#define FF_PROFILE_VP9_3 3
+#define FF_PROFILE_VP9_0                            0
+#define FF_PROFILE_VP9_1                            1
+#define FF_PROFILE_VP9_2                            2
+#define FF_PROFILE_VP9_3                            3
 
-#define FF_PROFILE_HEVC_MAIN 1
-#define FF_PROFILE_HEVC_MAIN_10 2
-#define FF_PROFILE_HEVC_MAIN_STILL_PICTURE 3
-#define FF_PROFILE_HEVC_REXT 4
+#define FF_PROFILE_HEVC_MAIN                        1
+#define FF_PROFILE_HEVC_MAIN_10                     2
+#define FF_PROFILE_HEVC_MAIN_STILL_PICTURE          3
+#define FF_PROFILE_HEVC_REXT                        4
 
-#define FF_PROFILE_AV1_MAIN 0
-#define FF_PROFILE_AV1_HIGH 1
-#define FF_PROFILE_AV1_PROFESSIONAL 2
+#define FF_PROFILE_AV1_MAIN                         0
+#define FF_PROFILE_AV1_HIGH                         1
+#define FF_PROFILE_AV1_PROFESSIONAL                 2
 
-#define FF_PROFILE_MJPEG_HUFFMAN_BASELINE_DCT 0xc0
+#define FF_PROFILE_MJPEG_HUFFMAN_BASELINE_DCT            0xc0
 #define FF_PROFILE_MJPEG_HUFFMAN_EXTENDED_SEQUENTIAL_DCT 0xc1
-#define FF_PROFILE_MJPEG_HUFFMAN_PROGRESSIVE_DCT 0xc2
-#define FF_PROFILE_MJPEG_HUFFMAN_LOSSLESS 0xc3
-#define FF_PROFILE_MJPEG_JPEG_LS 0xf7
+#define FF_PROFILE_MJPEG_HUFFMAN_PROGRESSIVE_DCT         0xc2
+#define FF_PROFILE_MJPEG_HUFFMAN_LOSSLESS                0xc3
+#define FF_PROFILE_MJPEG_JPEG_LS                         0xf7
 
-#define FF_PROFILE_SBC_MSBC 1
+#define FF_PROFILE_SBC_MSBC                         1
 
-#define FF_PROFILE_PRORES_PROXY 0
-#define FF_PROFILE_PRORES_LT 1
-#define FF_PROFILE_PRORES_STANDARD 2
-#define FF_PROFILE_PRORES_HQ 3
-#define FF_PROFILE_PRORES_4444 4
-#define FF_PROFILE_PRORES_XQ 5
+#define FF_PROFILE_PRORES_PROXY     0
+#define FF_PROFILE_PRORES_LT        1
+#define FF_PROFILE_PRORES_STANDARD  2
+#define FF_PROFILE_PRORES_HQ        3
+#define FF_PROFILE_PRORES_4444      4
+#define FF_PROFILE_PRORES_XQ        5
 
 #define FF_PROFILE_ARIB_PROFILE_A 0
 #define FF_PROFILE_ARIB_PROFILE_C 1
@@ -1954,7 +1979,7 @@ typedef struct AVCodecContext
      * - encoding: Set by user.
      * - decoding: Set by libavcodec.
      */
-    int level;
+     int level;
 #define FF_LEVEL_UNKNOWN -99
 
     /**
@@ -1999,7 +2024,7 @@ typedef struct AVCodecContext
      * AV_PKT_DATA_CPB_PROPERTIES packet side data
      */
     attribute_deprecated
-        uint64_t vbv_delay;
+    uint64_t vbv_delay;
 #endif
 
 #if FF_API_SIDEDATA_ONLY_PKT
@@ -2013,7 +2038,8 @@ typedef struct AVCodecContext
      * @deprecated this field disables the default behaviour and
      *             it is kept only for compatibility.
      */
-    attribute_deprecated int side_data_only_packets;
+    attribute_deprecated
+    int side_data_only_packets;
 #endif
 
     /**
@@ -2069,7 +2095,7 @@ typedef struct AVCodecContext
      * - encoding: unused
      * - decoding: Set by user.
      */
-    int lowres;
+     int lowres;
 #endif
 
     /**
@@ -2096,10 +2122,10 @@ typedef struct AVCodecContext
      * - encoding: unused
      */
     int sub_charenc_mode;
-#define FF_SUB_CHARENC_MODE_DO_NOTHING -1 ///< do nothing (demuxer outputs a stream supposed to be already in UTF-8, or the codec is bitmap for instance)
-#define FF_SUB_CHARENC_MODE_AUTOMATIC 0   ///< libavcodec will select the mode itself
-#define FF_SUB_CHARENC_MODE_PRE_DECODER 1 ///< the AVPacket data needs to be recoded to UTF-8 before being fed to the decoder, requires iconv
-#define FF_SUB_CHARENC_MODE_IGNORE 2      ///< neither convert the subtitles, nor check them for valid UTF-8
+#define FF_SUB_CHARENC_MODE_DO_NOTHING  -1  ///< do nothing (demuxer outputs a stream supposed to be already in UTF-8, or the codec is bitmap for instance)
+#define FF_SUB_CHARENC_MODE_AUTOMATIC    0  ///< libavcodec will select the mode itself
+#define FF_SUB_CHARENC_MODE_PRE_DECODER  1  ///< the AVPacket data needs to be recoded to UTF-8 before being fed to the decoder, requires iconv
+#define FF_SUB_CHARENC_MODE_IGNORE       2  ///< neither convert the subtitles, nor check them for valid UTF-8
 
     /**
      * Skip processing alpha if supported by codec.
@@ -2129,8 +2155,8 @@ typedef struct AVCodecContext
      * - decoding: Set by user.
      */
     int debug_mv;
-#define FF_DEBUG_VIS_MV_P_FOR 0x00000001  //visualize forward predicted MVs of P frames
-#define FF_DEBUG_VIS_MV_B_FOR 0x00000002  //visualize forward predicted MVs of B frames
+#define FF_DEBUG_VIS_MV_P_FOR  0x00000001 //visualize forward predicted MVs of P frames
+#define FF_DEBUG_VIS_MV_B_FOR  0x00000002 //visualize forward predicted MVs of B frames
 #define FF_DEBUG_VIS_MV_B_BACK 0x00000004 //visualize backward predicted MVs of B frames
 #endif
 
@@ -2163,7 +2189,7 @@ typedef struct AVCodecContext
      * - decoding: set by libavcodec
      */
     unsigned properties;
-#define FF_CODEC_PROPERTY_LOSSLESS 0x00000001
+#define FF_CODEC_PROPERTY_LOSSLESS        0x00000001
 #define FF_CODEC_PROPERTY_CLOSED_CAPTIONS 0x00000002
 
     /**
@@ -2173,7 +2199,7 @@ typedef struct AVCodecContext
      * - encoding: may be set by libavcodec after avcodec_open2().
      */
     AVPacketSideData *coded_side_data;
-    int nb_coded_side_data;
+    int            nb_coded_side_data;
 
     /**
      * A reference to the AVHWFramesContext describing the input (for encoding)
@@ -2205,7 +2231,7 @@ typedef struct AVCodecContext
      * - encoding: unused
      */
     int sub_text_format;
-#define FF_SUB_TEXT_FMT_ASS 0
+#define FF_SUB_TEXT_FMT_ASS              0
 #if FF_API_ASS_TIMING
 #define FF_SUB_TEXT_FMT_ASS_WITH_TIMINGS 1
 #endif
@@ -2334,33 +2360,41 @@ typedef struct AVCodecContext
  * compatibility, and do not need to be used anymore.
  */
 attribute_deprecated
-    AVRational
-    av_codec_get_pkt_timebase(const AVCodecContext *avctx);
-attribute_deprecated void av_codec_set_pkt_timebase(AVCodecContext *avctx, AVRational val);
-
-attribute_deprecated const AVCodecDescriptor *av_codec_get_codec_descriptor(const AVCodecContext *avctx);
-attribute_deprecated void av_codec_set_codec_descriptor(AVCodecContext *avctx, const AVCodecDescriptor *desc);
-
-attribute_deprecated unsigned av_codec_get_codec_properties(const AVCodecContext *avctx);
-
-#if FF_API_LOWRES
-attribute_deprecated int av_codec_get_lowres(const AVCodecContext *avctx);
-attribute_deprecated void av_codec_set_lowres(AVCodecContext *avctx, int val);
-#endif
-
-attribute_deprecated int av_codec_get_seek_preroll(const AVCodecContext *avctx);
-attribute_deprecated void av_codec_set_seek_preroll(AVCodecContext *avctx, int val);
+AVRational av_codec_get_pkt_timebase         (const AVCodecContext *avctx);
+attribute_deprecated
+void       av_codec_set_pkt_timebase         (AVCodecContext *avctx, AVRational val);
 
 attribute_deprecated
-    uint16_t *
-    av_codec_get_chroma_intra_matrix(const AVCodecContext *avctx);
-attribute_deprecated void av_codec_set_chroma_intra_matrix(AVCodecContext *avctx, uint16_t *val);
+const AVCodecDescriptor *av_codec_get_codec_descriptor(const AVCodecContext *avctx);
+attribute_deprecated
+void                     av_codec_set_codec_descriptor(AVCodecContext *avctx, const AVCodecDescriptor *desc);
+
+attribute_deprecated
+unsigned av_codec_get_codec_properties(const AVCodecContext *avctx);
+
+#if FF_API_LOWRES
+attribute_deprecated
+int  av_codec_get_lowres(const AVCodecContext *avctx);
+attribute_deprecated
+void av_codec_set_lowres(AVCodecContext *avctx, int val);
+#endif
+
+attribute_deprecated
+int  av_codec_get_seek_preroll(const AVCodecContext *avctx);
+attribute_deprecated
+void av_codec_set_seek_preroll(AVCodecContext *avctx, int val);
+
+attribute_deprecated
+uint16_t *av_codec_get_chroma_intra_matrix(const AVCodecContext *avctx);
+attribute_deprecated
+void av_codec_set_chroma_intra_matrix(AVCodecContext *avctx, uint16_t *val);
 #endif
 
 struct AVSubtitle;
 
 #if FF_API_CODEC_GET_SET
-attribute_deprecated int av_codec_get_max_lowres(const AVCodec *codec);
+attribute_deprecated
+int av_codec_get_max_lowres(const AVCodec *codec);
 #endif
 
 struct MpegEncContext;
@@ -2373,8 +2407,7 @@ struct MpegEncContext;
  *
  * @{
  */
-typedef struct AVHWAccel
-{
+typedef struct AVHWAccel {
     /**
      * Name of the hardware accelerated codec.
      * The name is globally unique among encoders and among decoders (but an
@@ -2387,7 +2420,7 @@ typedef struct AVHWAccel
      *
      * See AVMEDIA_TYPE_xxx
      */
-    enum FFAVMediaType type;
+    enum DS_AVMediaType type;
 
     /**
      * Codec implemented by the hardware accelerator.
@@ -2591,11 +2624,11 @@ typedef struct AVHWAccel
  * alpha.
  * @deprecated use AVFrame or imgutils functions instead
  */
-typedef struct AVPicture
-{
+typedef struct AVPicture {
     attribute_deprecated
-        uint8_t *data[AV_NUM_DATA_POINTERS];                 ///< pointers to the image data planes
-    attribute_deprecated int linesize[AV_NUM_DATA_POINTERS]; ///< number of bytes per line
+    uint8_t *data[AV_NUM_DATA_POINTERS];    ///< pointers to the image data planes
+    attribute_deprecated
+    int linesize[AV_NUM_DATA_POINTERS];     ///< number of bytes per line
 } AVPicture;
 
 /**
@@ -2603,11 +2636,10 @@ typedef struct AVPicture
  */
 #endif
 
-enum AVSubtitleType
-{
+enum AVSubtitleType {
     SUBTITLE_NONE,
 
-    SUBTITLE_BITMAP, ///< A bitmap, pict will be set
+    SUBTITLE_BITMAP,                ///< A bitmap, pict will be set
 
     /**
      * Plain text, the text field must be set by the decoder and is
@@ -2624,8 +2656,7 @@ enum AVSubtitleType
 
 #define AV_SUBTITLE_FLAG_FORCED 0x00000001
 
-typedef struct AVSubtitleRect
-{
+typedef struct AVSubtitleRect {
     int x;         ///< top left corner  of pict, undefined when pict is not set
     int y;         ///< top left corner  of pict, undefined when pict is not set
     int w;         ///< width            of pict, undefined when pict is not set
@@ -2637,7 +2668,7 @@ typedef struct AVSubtitleRect
      * @deprecated unused
      */
     attribute_deprecated
-        AVPicture pict;
+    AVPicture pict;
 #endif
     /**
      * data+linesize for the bitmap of this subtitle.
@@ -2648,7 +2679,7 @@ typedef struct AVSubtitleRect
 
     enum AVSubtitleType type;
 
-    char *text; ///< 0 terminated plain UTF-8 text
+    char *text;                     ///< 0 terminated plain UTF-8 text
 
     /**
      * 0 terminated ASS/SSA compatible event line.
@@ -2660,14 +2691,13 @@ typedef struct AVSubtitleRect
     int flags;
 } AVSubtitleRect;
 
-typedef struct AVSubtitle
-{
-    uint16_t format;             /* 0 = graphics */
+typedef struct AVSubtitle {
+    uint16_t format; /* 0 = graphics */
     uint32_t start_display_time; /* relative to packet pts, in ms */
-    uint32_t end_display_time;   /* relative to packet pts, in ms */
+    uint32_t end_display_time; /* relative to packet pts, in ms */
     unsigned num_rects;
     AVSubtitleRect **rects;
-    int64_t pts; ///< Same as packet pts, in AV_TIME_BASE
+    int64_t pts;    ///< Same as packet pts, in AV_TIME_BASE
 } AVSubtitle;
 
 #if FF_API_NEXT
@@ -2677,8 +2707,7 @@ typedef struct AVSubtitle
  * or NULL if c is the last one.
  */
 attribute_deprecated
-    AVCodec *
-    av_codec_next(const AVCodec *c);
+AVCodec *av_codec_next(const AVCodec *c);
 #endif
 
 /**
@@ -2705,7 +2734,8 @@ const char *avcodec_license(void);
  *
  * @see avcodec_register_all()
  */
-attribute_deprecated void avcodec_register(AVCodec *codec);
+attribute_deprecated
+void avcodec_register(AVCodec *codec);
 
 /**
  * Register all the codecs, parsers and bitstream filters which were enabled at
@@ -2717,7 +2747,8 @@ attribute_deprecated void avcodec_register(AVCodec *codec);
  * @see av_register_codec_parser
  * @see av_register_bitstream_filter
  */
-attribute_deprecated void avcodec_register_all(void);
+attribute_deprecated
+void avcodec_register_all(void);
 #endif
 
 /**
@@ -2792,7 +2823,8 @@ const AVClass *avcodec_get_subtitle_rect_class(void);
  * avcodec_parameters_from_context() / avcodec_parameters_to_context()
  * functions.
  */
-attribute_deprecated int avcodec_copy_context(AVCodecContext *dest, const AVCodecContext *src);
+attribute_deprecated
+int avcodec_copy_context(AVCodecContext *dest, const AVCodecContext *src);
 #endif
 
 /**
@@ -2988,8 +3020,9 @@ enum AVChromaLocation avcodec_chroma_pos_to_enum(int xpos, int ypos);
  *
 * @deprecated Use avcodec_send_packet() and avcodec_receive_frame().
  */
-attribute_deprecated int avcodec_decode_audio4(AVCodecContext *avctx, AVFrame *frame,
-                                               int *got_frame_ptr, const AVPacket *avpkt);
+attribute_deprecated
+int avcodec_decode_audio4(AVCodecContext *avctx, AVFrame *frame,
+                          int *got_frame_ptr, const AVPacket *avpkt);
 
 /**
  * Decode the video frame of size avpkt->size from avpkt->data into picture.
@@ -3036,9 +3069,10 @@ attribute_deprecated int avcodec_decode_audio4(AVCodecContext *avctx, AVFrame *f
  *
  * @deprecated Use avcodec_send_packet() and avcodec_receive_frame().
  */
-attribute_deprecated int avcodec_decode_video2(AVCodecContext *avctx, AVFrame *picture,
-                                               int *got_picture_ptr,
-                                               const AVPacket *avpkt);
+attribute_deprecated
+int avcodec_decode_video2(AVCodecContext *avctx, AVFrame *picture,
+                         int *got_picture_ptr,
+                         const AVPacket *avpkt);
 
 /**
  * Decode a subtitle message.
@@ -3068,8 +3102,8 @@ attribute_deprecated int avcodec_decode_video2(AVCodecContext *avctx, AVFrame *p
  * @param[in] avpkt The input AVPacket containing the input buffer.
  */
 int avcodec_decode_subtitle2(AVCodecContext *avctx, AVSubtitle *sub,
-                             int *got_sub_ptr,
-                             AVPacket *avpkt);
+                            int *got_sub_ptr,
+                            AVPacket *avpkt);
 
 /**
  * Supply raw packet data as input to a decoder.
@@ -3302,25 +3336,25 @@ int avcodec_get_hw_frames_parameters(AVCodecContext *avctx,
                                      enum AVPixelFormat hw_pix_fmt,
                                      AVBufferRef **out_frames_ref);
 
+
+
 /**
  * @defgroup lavc_parsing Frame parsing
  * @{
  */
 
-enum AVPictureStructure
-{
+enum AVPictureStructure {
     AV_PICTURE_STRUCTURE_UNKNOWN,      //< unknown
     AV_PICTURE_STRUCTURE_TOP_FIELD,    //< coded as top field
     AV_PICTURE_STRUCTURE_BOTTOM_FIELD, //< coded as bottom field
     AV_PICTURE_STRUCTURE_FRAME,        //< coded as frame
 };
 
-typedef struct AVCodecParserContext
-{
+typedef struct AVCodecParserContext {
     void *priv_data;
     struct AVCodecParser *parser;
-    int64_t frame_offset;      /* offset of the current frame */
-    int64_t cur_offset;        /* current offset
+    int64_t frame_offset; /* offset of the current frame */
+    int64_t cur_offset; /* current offset
                            (incremented by each av_parser_parse()) */
     int64_t next_frame_offset; /* offset of the next frame */
     /* video info */
@@ -3350,13 +3384,13 @@ typedef struct AVCodecParserContext
     int64_t cur_frame_dts[AV_PARSER_PTS_NB];
 
     int flags;
-#define PARSER_FLAG_COMPLETE_FRAMES 0x0001
-#define PARSER_FLAG_ONCE 0x0002
+#define PARSER_FLAG_COMPLETE_FRAMES           0x0001
+#define PARSER_FLAG_ONCE                      0x0002
 /// Set if the parser has a valid file offset
-#define PARSER_FLAG_FETCHED_OFFSET 0x0004
-#define PARSER_FLAG_USE_CODEC_TS 0x1000
+#define PARSER_FLAG_FETCHED_OFFSET            0x0004
+#define PARSER_FLAG_USE_CODEC_TS              0x1000
 
-    int64_t offset; ///< byte offset from starting packet start
+    int64_t offset;      ///< byte offset from starting packet start
     int64_t cur_frame_end[AV_PARSER_PTS_NB];
 
     /**
@@ -3372,7 +3406,7 @@ typedef struct AVCodecParserContext
      * @deprecated unused
      */
     attribute_deprecated
-        int64_t convergence_duration;
+    int64_t convergence_duration;
 #endif
 
     // Timestamp generation support:
@@ -3483,8 +3517,7 @@ typedef struct AVCodecParserContext
     int format;
 } AVCodecParserContext;
 
-typedef struct AVCodecParser
-{
+typedef struct AVCodecParser {
     int codec_ids[5]; /* several codec IDs are permitted */
     int priv_data_size;
     int (*parser_init)(AVCodecParserContext *s);
@@ -3511,10 +3544,10 @@ typedef struct AVCodecParser
 const AVCodecParser *av_parser_iterate(void **opaque);
 
 attribute_deprecated
-    AVCodecParser *
-    av_parser_next(const AVCodecParser *c);
+AVCodecParser *av_parser_next(const AVCodecParser *c);
 
-attribute_deprecated void av_register_codec_parser(AVCodecParser *parser);
+attribute_deprecated
+void av_register_codec_parser(AVCodecParser *parser);
 AVCodecParserContext *av_parser_init(int codec_id);
 
 /**
@@ -3615,8 +3648,9 @@ void av_parser_close(AVCodecParserContext *s);
  *
  * @deprecated use avcodec_send_frame()/avcodec_receive_packet() instead
  */
-attribute_deprecated int avcodec_encode_audio2(AVCodecContext *avctx, AVPacket *avpkt,
-                                               const AVFrame *frame, int *got_packet_ptr);
+attribute_deprecated
+int avcodec_encode_audio2(AVCodecContext *avctx, AVPacket *avpkt,
+                          const AVFrame *frame, int *got_packet_ptr);
 
 /**
  * Encode a frame of video.
@@ -3653,11 +3687,13 @@ attribute_deprecated int avcodec_encode_audio2(AVCodecContext *avctx, AVPacket *
  *
  * @deprecated use avcodec_send_frame()/avcodec_receive_packet() instead
  */
-attribute_deprecated int avcodec_encode_video2(AVCodecContext *avctx, AVPacket *avpkt,
-                                               const AVFrame *frame, int *got_packet_ptr);
+attribute_deprecated
+int avcodec_encode_video2(AVCodecContext *avctx, AVPacket *avpkt,
+                          const AVFrame *frame, int *got_packet_ptr);
 
 int avcodec_encode_subtitle(AVCodecContext *avctx, uint8_t *buf, int buf_size,
                             const AVSubtitle *sub);
+
 
 /**
  * @}
@@ -3672,48 +3708,56 @@ int avcodec_encode_subtitle(AVCodecContext *avctx, uint8_t *buf, int buf_size,
 /**
  * @deprecated unused
  */
-attribute_deprecated int avpicture_alloc(AVPicture *picture, enum AVPixelFormat pix_fmt, int width, int height);
+attribute_deprecated
+int avpicture_alloc(AVPicture *picture, enum AVPixelFormat pix_fmt, int width, int height);
 
 /**
  * @deprecated unused
  */
-attribute_deprecated void avpicture_free(AVPicture *picture);
+attribute_deprecated
+void avpicture_free(AVPicture *picture);
 
 /**
  * @deprecated use av_image_fill_arrays() instead.
  */
-attribute_deprecated int avpicture_fill(AVPicture *picture, const uint8_t *ptr,
-                                        enum AVPixelFormat pix_fmt, int width, int height);
+attribute_deprecated
+int avpicture_fill(AVPicture *picture, const uint8_t *ptr,
+                   enum AVPixelFormat pix_fmt, int width, int height);
 
 /**
  * @deprecated use av_image_copy_to_buffer() instead.
  */
-attribute_deprecated int avpicture_layout(const AVPicture *src, enum AVPixelFormat pix_fmt,
-                                          int width, int height,
-                                          unsigned char *dest, int dest_size);
+attribute_deprecated
+int avpicture_layout(const AVPicture *src, enum AVPixelFormat pix_fmt,
+                     int width, int height,
+                     unsigned char *dest, int dest_size);
 
 /**
  * @deprecated use av_image_get_buffer_size() instead.
  */
-attribute_deprecated int avpicture_get_size(enum AVPixelFormat pix_fmt, int width, int height);
+attribute_deprecated
+int avpicture_get_size(enum AVPixelFormat pix_fmt, int width, int height);
 
 /**
  * @deprecated av_image_copy() instead.
  */
-attribute_deprecated void av_picture_copy(AVPicture *dst, const AVPicture *src,
-                                          enum AVPixelFormat pix_fmt, int width, int height);
+attribute_deprecated
+void av_picture_copy(AVPicture *dst, const AVPicture *src,
+                     enum AVPixelFormat pix_fmt, int width, int height);
 
 /**
  * @deprecated unused
  */
-attribute_deprecated int av_picture_crop(AVPicture *dst, const AVPicture *src,
-                                         enum AVPixelFormat pix_fmt, int top_band, int left_band);
+attribute_deprecated
+int av_picture_crop(AVPicture *dst, const AVPicture *src,
+                    enum AVPixelFormat pix_fmt, int top_band, int left_band);
 
 /**
  * @deprecated unused
  */
-attribute_deprecated int av_picture_pad(AVPicture *dst, const AVPicture *src, int height, int width, enum AVPixelFormat pix_fmt,
-                                        int padtop, int padbottom, int padleft, int padright, int *color);
+attribute_deprecated
+int av_picture_pad(AVPicture *dst, const AVPicture *src, int height, int width, enum AVPixelFormat pix_fmt,
+            int padtop, int padbottom, int padleft, int padright, int *color);
 
 /**
  * @}
@@ -3741,7 +3785,8 @@ attribute_deprecated int av_picture_pad(AVPicture *dst, const AVPicture *src, in
  * @deprecated Use av_pix_fmt_get_chroma_sub_sample
  */
 
-attribute_deprecated void avcodec_get_chroma_sub_sample(enum AVPixelFormat pix_fmt, int *h_shift, int *v_shift);
+attribute_deprecated
+void avcodec_get_chroma_sub_sample(enum AVPixelFormat pix_fmt, int *h_shift, int *v_shift);
 #endif
 
 /**
@@ -3775,19 +3820,20 @@ int avcodec_get_pix_fmt_loss(enum AVPixelFormat dst_pix_fmt, enum AVPixelFormat 
  * @return The best pixel format to convert to or -1 if none was found.
  */
 enum AVPixelFormat avcodec_find_best_pix_fmt_of_list(const enum AVPixelFormat *pix_fmt_list,
-                                                     enum AVPixelFormat src_pix_fmt,
-                                                     int has_alpha, int *loss_ptr);
+                                            enum AVPixelFormat src_pix_fmt,
+                                            int has_alpha, int *loss_ptr);
 
 /**
  * @deprecated see av_find_best_pix_fmt_of_2()
  */
 enum AVPixelFormat avcodec_find_best_pix_fmt_of_2(enum AVPixelFormat dst_pix_fmt1, enum AVPixelFormat dst_pix_fmt2,
-                                                  enum AVPixelFormat src_pix_fmt, int has_alpha, int *loss_ptr);
+                                            enum AVPixelFormat src_pix_fmt, int has_alpha, int *loss_ptr);
 
-attribute_deprecated enum AVPixelFormat avcodec_find_best_pix_fmt2(enum AVPixelFormat dst_pix_fmt1, enum AVPixelFormat dst_pix_fmt2,
-                                                                   enum AVPixelFormat src_pix_fmt, int has_alpha, int *loss_ptr);
+attribute_deprecated
+enum AVPixelFormat avcodec_find_best_pix_fmt2(enum AVPixelFormat dst_pix_fmt1, enum AVPixelFormat dst_pix_fmt2,
+                                            enum AVPixelFormat src_pix_fmt, int has_alpha, int *loss_ptr);
 
-enum AVPixelFormat avcodec_default_get_format(struct AVCodecContext *s, const enum AVPixelFormat *fmt);
+enum AVPixelFormat avcodec_default_get_format(struct AVCodecContext *s, const enum AVPixelFormat * fmt);
 
 /**
  * @}
@@ -3806,8 +3852,7 @@ enum AVPixelFormat avcodec_default_get_format(struct AVCodecContext *s, const en
  * @deprecated see av_fourcc_make_string() and av_fourcc2str().
  */
 attribute_deprecated
-    size_t
-    av_get_codec_tag_string(char *buf, size_t buf_size, unsigned int codec_tag);
+size_t av_get_codec_tag_string(char *buf, size_t buf_size, unsigned int codec_tag);
 #endif
 
 void avcodec_string(char *buf, int buf_size, AVCodecContext *enc, int encode);
@@ -3834,8 +3879,8 @@ const char *av_get_profile_name(const AVCodec *codec, int profile);
  */
 const char *avcodec_profile_name(enum AVCodecID codec_id, int profile);
 
-int avcodec_default_execute(AVCodecContext *c, int (*func)(AVCodecContext *c2, void *arg2), void *arg, int *ret, int count, int size);
-int avcodec_default_execute2(AVCodecContext *c, int (*func)(AVCodecContext *c2, void *arg2, int, int), void *arg, int *ret, int count);
+int avcodec_default_execute(AVCodecContext *c, int (*func)(AVCodecContext *c2, void *arg2),void *arg, int *ret, int count, int size);
+int avcodec_default_execute2(AVCodecContext *c, int (*func)(AVCodecContext *c2, void *arg2, int, int),void *arg, int *ret, int count);
 //FIXME func typedef
 
 /**
@@ -3927,8 +3972,7 @@ int av_get_audio_frame_duration(AVCodecContext *avctx, int frame_bytes);
 int av_get_audio_frame_duration2(AVCodecParameters *par, int frame_bytes);
 
 #if FF_API_OLD_BSF
-typedef struct AVBitStreamFilterContext
-{
+typedef struct AVBitStreamFilterContext {
     void *priv_data;
     const struct AVBitStreamFilter *filter;
     AVCodecParserContext *parser;
@@ -3944,40 +3988,44 @@ typedef struct AVBitStreamFilterContext
  * @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)
  * is deprecated. Use the new bitstream filtering API (using AVBSFContext).
  */
-attribute_deprecated void av_register_bitstream_filter(AVBitStreamFilter *bsf);
+attribute_deprecated
+void av_register_bitstream_filter(AVBitStreamFilter *bsf);
 /**
  * @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)
  * is deprecated. Use av_bsf_get_by_name(), av_bsf_alloc(), and av_bsf_init()
  * from the new bitstream filtering API (using AVBSFContext).
  */
 attribute_deprecated
-    AVBitStreamFilterContext *
-    av_bitstream_filter_init(const char *name);
+AVBitStreamFilterContext *av_bitstream_filter_init(const char *name);
 /**
  * @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)
  * is deprecated. Use av_bsf_send_packet() and av_bsf_receive_packet() from the
  * new bitstream filtering API (using AVBSFContext).
  */
-attribute_deprecated int av_bitstream_filter_filter(AVBitStreamFilterContext *bsfc,
-                                                    AVCodecContext *avctx, const char *args,
-                                                    uint8_t **poutbuf, int *poutbuf_size,
-                                                    const uint8_t *buf, int buf_size, int keyframe);
+attribute_deprecated
+int av_bitstream_filter_filter(AVBitStreamFilterContext *bsfc,
+                               AVCodecContext *avctx, const char *args,
+                               uint8_t **poutbuf, int *poutbuf_size,
+                               const uint8_t *buf, int buf_size, int keyframe);
 /**
  * @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)
  * is deprecated. Use av_bsf_free() from the new bitstream filtering API (using
  * AVBSFContext).
  */
-attribute_deprecated void av_bitstream_filter_close(AVBitStreamFilterContext *bsf);
+attribute_deprecated
+void av_bitstream_filter_close(AVBitStreamFilterContext *bsf);
 /**
  * @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)
  * is deprecated. Use av_bsf_iterate() from the new bitstream filtering API (using
  * AVBSFContext).
  */
-attribute_deprecated const AVBitStreamFilter *av_bitstream_filter_next(const AVBitStreamFilter *f);
+attribute_deprecated
+const AVBitStreamFilter *av_bitstream_filter_next(const AVBitStreamFilter *f);
 #endif
 
 #if FF_API_NEXT
-attribute_deprecated const AVBitStreamFilter *av_bsf_next(void **opaque);
+attribute_deprecated
+const AVBitStreamFilter *av_bsf_next(void **opaque);
 #endif
 
 /* memory */
@@ -4012,7 +4060,8 @@ unsigned int av_xiphlacing(unsigned char *s, unsigned int v);
  *
  * @deprecated  This function doesn't do anything.
  */
-attribute_deprecated void av_register_hwaccel(AVHWAccel *hwaccel);
+attribute_deprecated
+void av_register_hwaccel(AVHWAccel *hwaccel);
 
 /**
  * If hwaccel is NULL, returns the first registered hardware accelerator,
@@ -4023,8 +4072,7 @@ attribute_deprecated void av_register_hwaccel(AVHWAccel *hwaccel);
  *              this function should not be used.
  */
 attribute_deprecated
-    AVHWAccel *
-    av_hwaccel_next(const AVHWAccel *hwaccel);
+AVHWAccel *av_hwaccel_next(const AVHWAccel *hwaccel);
 #endif
 
 #if FF_API_LOCKMGR
@@ -4033,12 +4081,11 @@ attribute_deprecated
  *
  * @deprecated Deprecated together with av_lockmgr_register().
  */
-enum AVLockOp
-{
-    AV_LOCK_CREATE,  ///< Create a mutex
-    AV_LOCK_OBTAIN,  ///< Lock the mutex
-    AV_LOCK_RELEASE, ///< Unlock the mutex
-    AV_LOCK_DESTROY, ///< Free mutex resources
+enum AVLockOp {
+  AV_LOCK_CREATE,  ///< Create a mutex
+  AV_LOCK_OBTAIN,  ///< Lock the mutex
+  AV_LOCK_RELEASE, ///< Unlock the mutex
+  AV_LOCK_DESTROY, ///< Free mutex resources
 };
 
 /**
@@ -4067,7 +4114,8 @@ enum AVLockOp
  * @deprecated This function does nothing, and always returns 0. Be sure to
  *             build with thread support to get basic thread safety.
  */
-attribute_deprecated int av_lockmgr_register(int (*cb)(void **mutex, enum AVLockOp op));
+attribute_deprecated
+int av_lockmgr_register(int (*cb)(void **mutex, enum AVLockOp op));
 #endif
 
 /**
