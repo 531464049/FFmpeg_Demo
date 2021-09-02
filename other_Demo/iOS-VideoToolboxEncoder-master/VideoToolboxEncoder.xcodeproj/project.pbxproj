@@ -1,0 +1,675 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18419BFE1E5E805700CE25FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419BFD1E5E805700CE25FE /* main.m */; };
+		18419C011E5E805700CE25FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C001E5E805700CE25FE /* AppDelegate.m */; };
+		18419C041E5E805700CE25FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C031E5E805700CE25FE /* ViewController.m */; };
+		18419C091E5E805700CE25FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18419C081E5E805700CE25FE /* Assets.xcassets */; };
+		18419C0C1E5E805700CE25FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18419C0A1E5E805700CE25FE /* LaunchScreen.storyboard */; };
+		18419C171E5E805700CE25FE /* VideoToolboxEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C161E5E805700CE25FE /* VideoToolboxEncoderTests.m */; };
+		18419C221E5E805700CE25FE /* VideoToolboxEncoderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C211E5E805700CE25FE /* VideoToolboxEncoderUITests.m */; };
+		18419C301E5E809E00CE25FE /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18419C2F1E5E809E00CE25FE /* ViewController.xib */; };
+		18419C5B1E5E849F00CE25FE /* ELPushStreamViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18419C411E5E849F00CE25FE /* ELPushStreamViewController.mm */; };
+		18419C5C1E5E849F00CE25FE /* ELImageVideoScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C441E5E849F00CE25FE /* ELImageVideoScheduler.m */; };
+		18419C5D1E5E849F00CE25FE /* ELImageContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C471E5E849F00CE25FE /* ELImageContext.m */; };
+		18419C5E1E5E849F00CE25FE /* ELImageDirectPassRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C491E5E849F00CE25FE /* ELImageDirectPassRenderer.m */; };
+		18419C5F1E5E849F00CE25FE /* ELImageOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C4B1E5E849F00CE25FE /* ELImageOutput.m */; };
+		18419C601E5E849F00CE25FE /* ELImageProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C4D1E5E849F00CE25FE /* ELImageProgram.m */; };
+		18419C611E5E849F00CE25FE /* ELImageTextureFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C4F1E5E849F00CE25FE /* ELImageTextureFrame.m */; };
+		18419C621E5E849F00CE25FE /* ELImageCameraRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C521E5E849F00CE25FE /* ELImageCameraRenderer.m */; };
+		18419C631E5E849F00CE25FE /* ELImageVideoCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C541E5E849F00CE25FE /* ELImageVideoCamera.m */; };
+		18419C641E5E849F00CE25FE /* ELImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C571E5E849F00CE25FE /* ELImageView.m */; };
+		18419C651E5E849F00CE25FE /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C5A1E5E849F00CE25FE /* CommonUtil.m */; };
+		18419C6A1E5E89EA00CE25FE /* ELImageEncoderRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18419C671E5E89EA00CE25FE /* ELImageEncoderRenderer.mm */; };
+		18419C6B1E5E89EA00CE25FE /* ELImageVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18419C691E5E89EA00CE25FE /* ELImageVideoEncoder.m */; };
+		18419C711E5E8A5500CE25FE /* H264HwEncoderHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18419C6E1E5E8A5500CE25FE /* H264HwEncoderHandler.mm */; };
+		18419C721E5E8A5500CE25FE /* H264HwEncoderImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18419C701E5E8A5500CE25FE /* H264HwEncoderImpl.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18419C131E5E805700CE25FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18419BF11E5E805700CE25FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18419BF81E5E805700CE25FE;
+			remoteInfo = VideoToolboxEncoder;
+		};
+		18419C1E1E5E805700CE25FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18419BF11E5E805700CE25FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18419BF81E5E805700CE25FE;
+			remoteInfo = VideoToolboxEncoder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18419BF91E5E805700CE25FE /* VideoToolboxEncoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoToolboxEncoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18419BFD1E5E805700CE25FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18419BFF1E5E805700CE25FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		18419C001E5E805700CE25FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		18419C021E5E805700CE25FE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		18419C031E5E805700CE25FE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		18419C081E5E805700CE25FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18419C0B1E5E805700CE25FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18419C0D1E5E805700CE25FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18419C121E5E805700CE25FE /* VideoToolboxEncoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoToolboxEncoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18419C161E5E805700CE25FE /* VideoToolboxEncoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoToolboxEncoderTests.m; sourceTree = "<group>"; };
+		18419C181E5E805700CE25FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18419C1D1E5E805700CE25FE /* VideoToolboxEncoderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoToolboxEncoderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18419C211E5E805700CE25FE /* VideoToolboxEncoderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoToolboxEncoderUITests.m; sourceTree = "<group>"; };
+		18419C231E5E805700CE25FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18419C2F1E5E809E00CE25FE /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		18419C3F1E5E849F00CE25FE /* ELPushStreamConfigeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPushStreamConfigeration.h; sourceTree = "<group>"; };
+		18419C401E5E849F00CE25FE /* ELPushStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPushStreamViewController.h; sourceTree = "<group>"; };
+		18419C411E5E849F00CE25FE /* ELPushStreamViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ELPushStreamViewController.mm; sourceTree = "<group>"; };
+		18419C431E5E849F00CE25FE /* ELImageVideoScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageVideoScheduler.h; sourceTree = "<group>"; };
+		18419C441E5E849F00CE25FE /* ELImageVideoScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageVideoScheduler.m; sourceTree = "<group>"; };
+		18419C461E5E849F00CE25FE /* ELImageContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageContext.h; sourceTree = "<group>"; };
+		18419C471E5E849F00CE25FE /* ELImageContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageContext.m; sourceTree = "<group>"; };
+		18419C481E5E849F00CE25FE /* ELImageDirectPassRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageDirectPassRenderer.h; sourceTree = "<group>"; };
+		18419C491E5E849F00CE25FE /* ELImageDirectPassRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageDirectPassRenderer.m; sourceTree = "<group>"; };
+		18419C4A1E5E849F00CE25FE /* ELImageOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageOutput.h; sourceTree = "<group>"; };
+		18419C4B1E5E849F00CE25FE /* ELImageOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageOutput.m; sourceTree = "<group>"; };
+		18419C4C1E5E849F00CE25FE /* ELImageProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageProgram.h; sourceTree = "<group>"; };
+		18419C4D1E5E849F00CE25FE /* ELImageProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageProgram.m; sourceTree = "<group>"; };
+		18419C4E1E5E849F00CE25FE /* ELImageTextureFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageTextureFrame.h; sourceTree = "<group>"; };
+		18419C4F1E5E849F00CE25FE /* ELImageTextureFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageTextureFrame.m; sourceTree = "<group>"; };
+		18419C511E5E849F00CE25FE /* ELImageCameraRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageCameraRenderer.h; sourceTree = "<group>"; };
+		18419C521E5E849F00CE25FE /* ELImageCameraRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageCameraRenderer.m; sourceTree = "<group>"; };
+		18419C531E5E849F00CE25FE /* ELImageVideoCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageVideoCamera.h; sourceTree = "<group>"; };
+		18419C541E5E849F00CE25FE /* ELImageVideoCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageVideoCamera.m; sourceTree = "<group>"; };
+		18419C561E5E849F00CE25FE /* ELImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageView.h; sourceTree = "<group>"; };
+		18419C571E5E849F00CE25FE /* ELImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageView.m; sourceTree = "<group>"; };
+		18419C591E5E849F00CE25FE /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
+		18419C5A1E5E849F00CE25FE /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtil.m; sourceTree = "<group>"; };
+		18419C661E5E89EA00CE25FE /* ELImageEncoderRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageEncoderRenderer.h; sourceTree = "<group>"; };
+		18419C671E5E89EA00CE25FE /* ELImageEncoderRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ELImageEncoderRenderer.mm; sourceTree = "<group>"; };
+		18419C681E5E89EA00CE25FE /* ELImageVideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELImageVideoEncoder.h; sourceTree = "<group>"; };
+		18419C691E5E89EA00CE25FE /* ELImageVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELImageVideoEncoder.m; sourceTree = "<group>"; };
+		18419C6D1E5E8A5500CE25FE /* H264HwEncoderHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264HwEncoderHandler.h; sourceTree = "<group>"; };
+		18419C6E1E5E8A5500CE25FE /* H264HwEncoderHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = H264HwEncoderHandler.mm; sourceTree = "<group>"; };
+		18419C6F1E5E8A5500CE25FE /* H264HwEncoderImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264HwEncoderImpl.h; sourceTree = "<group>"; };
+		18419C701E5E8A5500CE25FE /* H264HwEncoderImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = H264HwEncoderImpl.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18419BF61E5E805700CE25FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18419C0F1E5E805700CE25FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18419C1A1E5E805700CE25FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18419BF01E5E805600CE25FE = {
+			isa = PBXGroup;
+			children = (
+				18419BFB1E5E805700CE25FE /* VideoToolboxEncoder */,
+				18419C151E5E805700CE25FE /* VideoToolboxEncoderTests */,
+				18419C201E5E805700CE25FE /* VideoToolboxEncoderUITests */,
+				18419BFA1E5E805700CE25FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18419BFA1E5E805700CE25FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18419BF91E5E805700CE25FE /* VideoToolboxEncoder.app */,
+				18419C121E5E805700CE25FE /* VideoToolboxEncoderTests.xctest */,
+				18419C1D1E5E805700CE25FE /* VideoToolboxEncoderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18419BFB1E5E805700CE25FE /* VideoToolboxEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				18419C3F1E5E849F00CE25FE /* ELPushStreamConfigeration.h */,
+				18419C401E5E849F00CE25FE /* ELPushStreamViewController.h */,
+				18419C411E5E849F00CE25FE /* ELPushStreamViewController.mm */,
+				18419C421E5E849F00CE25FE /* ImageClient */,
+				18419C581E5E849F00CE25FE /* utils */,
+				18419BFF1E5E805700CE25FE /* AppDelegate.h */,
+				18419C001E5E805700CE25FE /* AppDelegate.m */,
+				18419C021E5E805700CE25FE /* ViewController.h */,
+				18419C031E5E805700CE25FE /* ViewController.m */,
+				18419C081E5E805700CE25FE /* Assets.xcassets */,
+				18419C0A1E5E805700CE25FE /* LaunchScreen.storyboard */,
+				18419C0D1E5E805700CE25FE /* Info.plist */,
+				18419BFC1E5E805700CE25FE /* Supporting Files */,
+				18419C2F1E5E809E00CE25FE /* ViewController.xib */,
+			);
+			path = VideoToolboxEncoder;
+			sourceTree = "<group>";
+		};
+		18419BFC1E5E805700CE25FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18419BFD1E5E805700CE25FE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18419C151E5E805700CE25FE /* VideoToolboxEncoderTests */ = {
+			isa = PBXGroup;
+			children = (
+				18419C161E5E805700CE25FE /* VideoToolboxEncoderTests.m */,
+				18419C181E5E805700CE25FE /* Info.plist */,
+			);
+			path = VideoToolboxEncoderTests;
+			sourceTree = "<group>";
+		};
+		18419C201E5E805700CE25FE /* VideoToolboxEncoderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				18419C211E5E805700CE25FE /* VideoToolboxEncoderUITests.m */,
+				18419C231E5E805700CE25FE /* Info.plist */,
+			);
+			path = VideoToolboxEncoderUITests;
+			sourceTree = "<group>";
+		};
+		18419C421E5E849F00CE25FE /* ImageClient */ = {
+			isa = PBXGroup;
+			children = (
+				18419C6C1E5E8A5500CE25FE /* encoder */,
+				18419C431E5E849F00CE25FE /* ELImageVideoScheduler.h */,
+				18419C441E5E849F00CE25FE /* ELImageVideoScheduler.m */,
+				18419C451E5E849F00CE25FE /* imageCore */,
+				18419C501E5E849F00CE25FE /* imageInput */,
+				18419C551E5E849F00CE25FE /* imageOutput */,
+			);
+			path = ImageClient;
+			sourceTree = "<group>";
+		};
+		18419C451E5E849F00CE25FE /* imageCore */ = {
+			isa = PBXGroup;
+			children = (
+				18419C461E5E849F00CE25FE /* ELImageContext.h */,
+				18419C471E5E849F00CE25FE /* ELImageContext.m */,
+				18419C481E5E849F00CE25FE /* ELImageDirectPassRenderer.h */,
+				18419C491E5E849F00CE25FE /* ELImageDirectPassRenderer.m */,
+				18419C4A1E5E849F00CE25FE /* ELImageOutput.h */,
+				18419C4B1E5E849F00CE25FE /* ELImageOutput.m */,
+				18419C4C1E5E849F00CE25FE /* ELImageProgram.h */,
+				18419C4D1E5E849F00CE25FE /* ELImageProgram.m */,
+				18419C4E1E5E849F00CE25FE /* ELImageTextureFrame.h */,
+				18419C4F1E5E849F00CE25FE /* ELImageTextureFrame.m */,
+			);
+			path = imageCore;
+			sourceTree = "<group>";
+		};
+		18419C501E5E849F00CE25FE /* imageInput */ = {
+			isa = PBXGroup;
+			children = (
+				18419C511E5E849F00CE25FE /* ELImageCameraRenderer.h */,
+				18419C521E5E849F00CE25FE /* ELImageCameraRenderer.m */,
+				18419C531E5E849F00CE25FE /* ELImageVideoCamera.h */,
+				18419C541E5E849F00CE25FE /* ELImageVideoCamera.m */,
+			);
+			path = imageInput;
+			sourceTree = "<group>";
+		};
+		18419C551E5E849F00CE25FE /* imageOutput */ = {
+			isa = PBXGroup;
+			children = (
+				18419C661E5E89EA00CE25FE /* ELImageEncoderRenderer.h */,
+				18419C671E5E89EA00CE25FE /* ELImageEncoderRenderer.mm */,
+				18419C681E5E89EA00CE25FE /* ELImageVideoEncoder.h */,
+				18419C691E5E89EA00CE25FE /* ELImageVideoEncoder.m */,
+				18419C561E5E849F00CE25FE /* ELImageView.h */,
+				18419C571E5E849F00CE25FE /* ELImageView.m */,
+			);
+			path = imageOutput;
+			sourceTree = "<group>";
+		};
+		18419C581E5E849F00CE25FE /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				18419C591E5E849F00CE25FE /* CommonUtil.h */,
+				18419C5A1E5E849F00CE25FE /* CommonUtil.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		18419C6C1E5E8A5500CE25FE /* encoder */ = {
+			isa = PBXGroup;
+			children = (
+				18419C6D1E5E8A5500CE25FE /* H264HwEncoderHandler.h */,
+				18419C6E1E5E8A5500CE25FE /* H264HwEncoderHandler.mm */,
+				18419C6F1E5E8A5500CE25FE /* H264HwEncoderImpl.h */,
+				18419C701E5E8A5500CE25FE /* H264HwEncoderImpl.mm */,
+			);
+			path = encoder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18419BF81E5E805700CE25FE /* VideoToolboxEncoder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18419C261E5E805700CE25FE /* Build configuration list for PBXNativeTarget "VideoToolboxEncoder" */;
+			buildPhases = (
+				18419BF51E5E805700CE25FE /* Sources */,
+				18419BF61E5E805700CE25FE /* Frameworks */,
+				18419BF71E5E805700CE25FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VideoToolboxEncoder;
+			productName = VideoToolboxEncoder;
+			productReference = 18419BF91E5E805700CE25FE /* VideoToolboxEncoder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18419C111E5E805700CE25FE /* VideoToolboxEncoderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18419C291E5E805700CE25FE /* Build configuration list for PBXNativeTarget "VideoToolboxEncoderTests" */;
+			buildPhases = (
+				18419C0E1E5E805700CE25FE /* Sources */,
+				18419C0F1E5E805700CE25FE /* Frameworks */,
+				18419C101E5E805700CE25FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18419C141E5E805700CE25FE /* PBXTargetDependency */,
+			);
+			name = VideoToolboxEncoderTests;
+			productName = VideoToolboxEncoderTests;
+			productReference = 18419C121E5E805700CE25FE /* VideoToolboxEncoderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		18419C1C1E5E805700CE25FE /* VideoToolboxEncoderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18419C2C1E5E805700CE25FE /* Build configuration list for PBXNativeTarget "VideoToolboxEncoderUITests" */;
+			buildPhases = (
+				18419C191E5E805700CE25FE /* Sources */,
+				18419C1A1E5E805700CE25FE /* Frameworks */,
+				18419C1B1E5E805700CE25FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18419C1F1E5E805700CE25FE /* PBXTargetDependency */,
+			);
+			name = VideoToolboxEncoderUITests;
+			productName = VideoToolboxEncoderUITests;
+			productReference = 18419C1D1E5E805700CE25FE /* VideoToolboxEncoderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18419BF11E5E805700CE25FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = xiaokai.zhan;
+				TargetAttributes = {
+					18419BF81E5E805700CE25FE = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 79MJSMMJTD;
+						ProvisioningStyle = Automatic;
+					};
+					18419C111E5E805700CE25FE = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MY5GTD35UJ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 18419BF81E5E805700CE25FE;
+					};
+					18419C1C1E5E805700CE25FE = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MY5GTD35UJ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 18419BF81E5E805700CE25FE;
+					};
+				};
+			};
+			buildConfigurationList = 18419BF41E5E805700CE25FE /* Build configuration list for PBXProject "VideoToolboxEncoder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 18419BF01E5E805600CE25FE;
+			productRefGroup = 18419BFA1E5E805700CE25FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18419BF81E5E805700CE25FE /* VideoToolboxEncoder */,
+				18419C111E5E805700CE25FE /* VideoToolboxEncoderTests */,
+				18419C1C1E5E805700CE25FE /* VideoToolboxEncoderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18419BF71E5E805700CE25FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18419C0C1E5E805700CE25FE /* LaunchScreen.storyboard in Resources */,
+				18419C301E5E809E00CE25FE /* ViewController.xib in Resources */,
+				18419C091E5E805700CE25FE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18419C101E5E805700CE25FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18419C1B1E5E805700CE25FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18419BF51E5E805700CE25FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18419C611E5E849F00CE25FE /* ELImageTextureFrame.m in Sources */,
+				18419C041E5E805700CE25FE /* ViewController.m in Sources */,
+				18419C651E5E849F00CE25FE /* CommonUtil.m in Sources */,
+				18419C5B1E5E849F00CE25FE /* ELPushStreamViewController.mm in Sources */,
+				18419C631E5E849F00CE25FE /* ELImageVideoCamera.m in Sources */,
+				18419C641E5E849F00CE25FE /* ELImageView.m in Sources */,
+				18419C6A1E5E89EA00CE25FE /* ELImageEncoderRenderer.mm in Sources */,
+				18419C721E5E8A5500CE25FE /* H264HwEncoderImpl.mm in Sources */,
+				18419C011E5E805700CE25FE /* AppDelegate.m in Sources */,
+				18419BFE1E5E805700CE25FE /* main.m in Sources */,
+				18419C5D1E5E849F00CE25FE /* ELImageContext.m in Sources */,
+				18419C5E1E5E849F00CE25FE /* ELImageDirectPassRenderer.m in Sources */,
+				18419C6B1E5E89EA00CE25FE /* ELImageVideoEncoder.m in Sources */,
+				18419C711E5E8A5500CE25FE /* H264HwEncoderHandler.mm in Sources */,
+				18419C5C1E5E849F00CE25FE /* ELImageVideoScheduler.m in Sources */,
+				18419C5F1E5E849F00CE25FE /* ELImageOutput.m in Sources */,
+				18419C601E5E849F00CE25FE /* ELImageProgram.m in Sources */,
+				18419C621E5E849F00CE25FE /* ELImageCameraRenderer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18419C0E1E5E805700CE25FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18419C171E5E805700CE25FE /* VideoToolboxEncoderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18419C191E5E805700CE25FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18419C221E5E805700CE25FE /* VideoToolboxEncoderUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18419C141E5E805700CE25FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18419BF81E5E805700CE25FE /* VideoToolboxEncoder */;
+			targetProxy = 18419C131E5E805700CE25FE /* PBXContainerItemProxy */;
+		};
+		18419C1F1E5E805700CE25FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18419BF81E5E805700CE25FE /* VideoToolboxEncoder */;
+			targetProxy = 18419C1E1E5E805700CE25FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18419C0A1E5E805700CE25FE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18419C0B1E5E805700CE25FE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18419C241E5E805700CE25FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		18419C251E5E805700CE25FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18419C271E5E805700CE25FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 79MJSMMJTD;
+				INFOPLIST_FILE = VideoToolboxEncoder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robot.MDMapAndCamera.FFmpeg-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		18419C281E5E805700CE25FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 79MJSMMJTD;
+				INFOPLIST_FILE = VideoToolboxEncoder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robot.MDMapAndCamera.FFmpeg-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		18419C2A1E5E805700CE25FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = MY5GTD35UJ;
+				INFOPLIST_FILE = VideoToolboxEncoderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.changba.ktv.VideoToolboxEncoderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoToolboxEncoder.app/VideoToolboxEncoder";
+			};
+			name = Debug;
+		};
+		18419C2B1E5E805700CE25FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = MY5GTD35UJ;
+				INFOPLIST_FILE = VideoToolboxEncoderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.changba.ktv.VideoToolboxEncoderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoToolboxEncoder.app/VideoToolboxEncoder";
+			};
+			name = Release;
+		};
+		18419C2D1E5E805700CE25FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MY5GTD35UJ;
+				INFOPLIST_FILE = VideoToolboxEncoderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.changba.ktv.VideoToolboxEncoderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VideoToolboxEncoder;
+			};
+			name = Debug;
+		};
+		18419C2E1E5E805700CE25FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MY5GTD35UJ;
+				INFOPLIST_FILE = VideoToolboxEncoderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.changba.ktv.VideoToolboxEncoderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VideoToolboxEncoder;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18419BF41E5E805700CE25FE /* Build configuration list for PBXProject "VideoToolboxEncoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18419C241E5E805700CE25FE /* Debug */,
+				18419C251E5E805700CE25FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18419C261E5E805700CE25FE /* Build configuration list for PBXNativeTarget "VideoToolboxEncoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18419C271E5E805700CE25FE /* Debug */,
+				18419C281E5E805700CE25FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18419C291E5E805700CE25FE /* Build configuration list for PBXNativeTarget "VideoToolboxEncoderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18419C2A1E5E805700CE25FE /* Debug */,
+				18419C2B1E5E805700CE25FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18419C2C1E5E805700CE25FE /* Build configuration list for PBXNativeTarget "VideoToolboxEncoderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18419C2D1E5E805700CE25FE /* Debug */,
+				18419C2E1E5E805700CE25FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18419BF11E5E805700CE25FE /* Project object */;
+}
